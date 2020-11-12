@@ -37,7 +37,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -68,7 +68,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'rol_usuario' => $data['rol_usuario'],
-            'activo' => true,
+            'activo' =>true,
 
         ]);
     }
