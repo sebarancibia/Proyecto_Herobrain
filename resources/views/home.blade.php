@@ -14,14 +14,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
-                    You are logged in!
-
-                    @if(auth::user()->rol_usuario=='administrador')
-                        <a href="adminMenu" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"> Siguiente</a>                    
-                    @endif
                 </div>
             </div>
+                        <a href="menuAdmin" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"> Siguiente</a>                    
+                    @endif
+                    @if(auth::user()->rol_usuario=='administrador')
         </div>
     </div>
 </div>
