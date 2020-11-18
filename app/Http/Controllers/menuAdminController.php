@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
-class menuAdmin extends Controller
+class menuAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -58,7 +58,8 @@ class menuAdmin extends Controller
      */
     public function edit($id)
     {
-        //
+        $users= User::find($id);
+        return view('auth.adminView.editar', compact('users'));
     }
 
     /**
@@ -68,9 +69,20 @@ class menuAdmin extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(User $users)
     {
-        //
+        
+        
+        $users->update([
+            'name'->request('name'),
+            'rol_usuario' ->request('rol_usuario'),
+            'activo' ->request('activo'),
+            'email'->request('email'),
+            'password'->request('password'),
+
+
+        ]);
+        return redirect()->route('adminMenu',$users);
     }
 
     /**

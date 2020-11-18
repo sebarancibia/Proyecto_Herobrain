@@ -35,26 +35,31 @@
             <tbody>
 
                 @foreach($users as $user)
-                    <tr>
-                        <th scope="row">{{$user->id}}</th>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->rol_usuario}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>
-                            <form method = "post" action ="{{ route ('menuAdmin.update',$user->id) }}">
-                                @method('update')
-                                @csrf
-                                <button class = "btn btn-primary btn-sm"> Editar Usuario</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form method = "post" action ="{{ route ('menuAdmin.destroy',$user->id) }}">
-                                @method('delete')
-                                @csrf
-                                <button class = "btn btn-danger btn-sm"> Eliminar Usuario</button>
-                            </form>
-                        </td>
-                    </tr>
+                        @if($user->rol_usuario !='administrador' and $user->activo == true)
+                            <tr>
+                                <th scope="row">{{$user->id}}</th>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->rol_usuario}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>
+                                    <form method = "put" action="{{ route ('adminMenu.edit', $user->id )}}" >
+                                        
+                                        @csrf
+                                        
+                                        <button class = "btn btn-primary btn-sm" > Editar Usuario</button>
+                                        
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method = "post" action ="#">
+                                        @method('delete')
+                                        @csrf
+                                        <button class = "btn btn-danger btn-sm"> Eliminar Usuario</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endif
+                    
                 @endforeach
             </tbody>
         </table>

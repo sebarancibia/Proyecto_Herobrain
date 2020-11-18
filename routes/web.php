@@ -27,4 +27,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('menuAdmin', 'menuAdmin');
+Route::resource('adminMenu', 'menuAdminController');
+
+

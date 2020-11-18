@@ -163,6 +163,16 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
+        agregado
+        */
+        \Maatwebsite\Excel\ExcelServiceProvider::class,
+
+
+        /*
+        agregado
+        */
+
+        /*
          * Package Service Providers...
          */
 
@@ -225,6 +235,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+
+
+        'Excel' => \Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

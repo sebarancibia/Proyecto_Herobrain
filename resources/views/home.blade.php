@@ -18,7 +18,7 @@
                     You are logged in!
 
                     @if(auth::user()->rol_usuario=='administrador')
-                        <a href="menuAdmin" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"> Siguiente</a>                    
+                        <a href="adminMenu" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"> Siguiente</a>                    
                     @endif
                 </div>
             </div>
