@@ -83,7 +83,6 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Welcome to a new world...
                 </div>
 
                 <div class="links">
