@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>HeroBrain</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -70,7 +70,13 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Entrar</a>
+
+                        <a href="{{ route('login') }}">Ingresar</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Registrar</a>
+                        @endif
+
                     @endauth
                 </div>
             @endif
