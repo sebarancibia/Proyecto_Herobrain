@@ -29,4 +29,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('adminMenu', 'menuAdminController');
 
+Route::get('/import-form','EstudianteController@importForm');
 
+Route::get('/get-all-estudiante','EstudianteController@getAllEstudiante');
+
+Route::put('/import', 'EstudianteController@import')->name('import');
