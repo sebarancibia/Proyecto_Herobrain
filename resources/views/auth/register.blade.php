@@ -3,11 +3,7 @@
 @section('content')
 
 @guest
-<div class="container">
-    <h1>No tienes permiso para ver esta vista</h1>
-</div>
-@else
-    @if(auth::user()->rol_usuario=='administrador')
+
 
 
             <div class="container">
@@ -101,14 +97,6 @@
         </div>
 
 
-
-
-        <!--                 -->
-    @else
-        <div class="container">
-        <h1>Solo los administradores pueden registrar usuarios</h1>
-        </div>
-    @endif
 
 
 

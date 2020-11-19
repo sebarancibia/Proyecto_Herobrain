@@ -70,17 +70,13 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-<<<<<<< refs/remotes/origin/main
-                        <a href="{{ route('login') }}">Entrar</a>
 
-                        
-=======
                         <a href="{{ route('login') }}">Ingresar</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Registrar</a>
                         @endif
->>>>>>> por ahora funciona
+
                     @endauth
                 </div>
             @endif
