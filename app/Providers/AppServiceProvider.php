@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Auth\Events\Registered;
 
 class AppServiceProvider extends ServiceProvider
 {
