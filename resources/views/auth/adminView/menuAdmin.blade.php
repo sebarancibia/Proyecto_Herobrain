@@ -26,7 +26,8 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Rol</th>
-                <th scope="col">email</th>
+                <th scope="col">Email</th>
+                <th scope="col">Estado</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Eliminar</th>
                 <a type="button" class="btn btn-outline-primary" style = "margin-bottom:20px;float:right" href="register">Agregar Usuario</a>
@@ -35,14 +36,21 @@
             <tbody>
 
                 @foreach($users as $user)
-                        @if($user->rol_usuario !='administrador' and $user->activo == true)
+                        @if($user->rol_usuario !='administrador')
                             <tr>
                                 <th scope="row">{{$user->id}}</th>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->rol_usuario}}</td>
                                 <td>{{$user->email}}</td>
+                                @if($user->activo==true)
+                                    <td>Activo</td>
+
+                                    @else
+                                    <td>Inactivo</td>
+                                @endif
+                                
                                 <td>
-                                    <form method = "put" action="{{ route ('adminMenu.edit', $user->id )}}" >
+                                    <form method = "put" action="{{ route ('menuAdmin.edit', $user->id )}}" >
                                         
                                         @csrf
                                         
@@ -51,11 +59,11 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <form method = "post" action ="#">
-                                        @method('delete')
-                                        @csrf
-                                        <button class = "btn btn-danger btn-sm"> Eliminar Usuario</button>
-                                    </form>
+                                <form method = "post" action ="{{ route ('menuAdmin.destroy',$user->id) }}">
+                                @method('delete')
+                                @csrf
+                                <button class = "btn btn-danger btn-sm"> Eliminar Usuario</button>
+                            </form>
                                 </td>
                             </tr>
                         @endif

@@ -8,9 +8,13 @@
                 <div class="panel-heading">Editar Usuario</div>
                 
                 <div class="panel-body">
-                <h1>{{$users->id}}</h1>
-                    <form class="form-horizontal" role="form" method="POST" action="{{route('adminMenu.update', $users, $users)}}">
-                    <h1>{{$users->id}}</h1>
+                
+                    <form class="form-horizontal" action="{{route('menuAdmin.update', $users->id)}}" method="POST">
+                    @method('PACH')
+                    @csrf 
+                
+
+                    
                         {{ csrf_field() }}
                         {{method_field('PUT')}}
 
@@ -44,8 +48,6 @@
                         <label >jefe de carrera</label>
                         </div>
 
-
-                        
 
                        
 
@@ -94,7 +96,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i> Actualizar
+                                    Actualizar
                                 </button>
                             </div>
                         </div>

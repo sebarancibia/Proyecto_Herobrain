@@ -69,15 +69,25 @@ class menuAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,User $users)
+    public function update(Request $request,$id)
     {
-        dd($users);
+        $users=User::findOrFail($id);
         $users->name =$request->name;
         $users->email =$request->email;
         $users->password =bcrypt($request->password);
         $users->rol_usuario =$request->rol_usuario;
         $users->activo=true;
-        $users->save();
+        $users->update();
+        
+        $users = User::all();
+        return view('auth.adminView.menuAdmin',compact('users'));
+    }
+
+    public function update2($id)
+    {
+        $users=User::findOrFail($id);
+        $users->activo=false;
+        $users->update();
         
         $users = User::all();
         return view('auth.adminView.menuAdmin',compact('users'));
@@ -91,6 +101,10 @@ class menuAdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $users=User::findOrFail($id);
+        $users->activo=false;
+        $users->update();
+        
+        return back();
     }
 }
