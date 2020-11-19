@@ -12,6 +12,7 @@ class datosPrueba extends Seeder
      */
     public function run()
     {
+
         DB::table('users')->insert([
             'name'=>'admin',
             'rol_usuario'=>'administrador',

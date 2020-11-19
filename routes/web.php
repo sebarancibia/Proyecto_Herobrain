@@ -29,4 +29,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('adminMenu', 'menuAdminController');
 
+Route::resource('menuAdmin', 'menuAdmin');
 
