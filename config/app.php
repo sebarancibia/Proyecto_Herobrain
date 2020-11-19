@@ -165,7 +165,7 @@ return [
         /*
         agregado
         */
-        \Maatwebsite\Excel\ExcelServiceProvider::class,
+        // \Maatwebsite\Excel\ExcelServiceProvider::class,
 
 
         /*

@@ -16,9 +16,10 @@
                     @endif
                 </div>
             </div>
+                    @if(auth::user()->rol_usuario=='administrador')
                         <a href="menuAdmin" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"> Siguiente</a>                    
                     @endif
-                    @if(auth::user()->rol_usuario=='administrador')
+                    
         </div>
     </div>
 </div>
