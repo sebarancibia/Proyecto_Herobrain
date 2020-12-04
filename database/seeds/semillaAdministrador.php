@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class datosPrueba extends Seeder
+class semillaAdministrador extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,12 +12,12 @@ class datosPrueba extends Seeder
      */
     public function run()
     {
-
         DB::table('users')->insert([
-            'name'=>'admin',
-            'rol_usuario'=>'administrador',
-            'activo'=>true,
-            'email'=>'admin@email.com',
+            'name' => 'admin',
+            'rol1' => 'administrador',
+            'rol2' => '',
+            'activo' => true,
+            'email' => 'admin@email.com',
             'password' => bcrypt('1'),
 
         ]);

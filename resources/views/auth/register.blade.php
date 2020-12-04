@@ -7,7 +7,7 @@
     <h1>No tienes permiso para registrar a un usuario</h1>
     </div>
     @else
-        @if(auth::user()->rol_usuario=='administrador')
+        @if(auth::user()->rol1=='administrador')
 
             <div class="container">
                 <div class="row justify-content-center">
@@ -34,19 +34,21 @@
                                     </div>
 
                                     <div class="form-group row">
-                                    
-                                        
-                                        <label for="rol_usuario" class="col-md-4 col-form-label text-md-right">Rol del usuario:</label>
-                                        <select id="rol_usuario" name="rol_usuario" class="col-md-4 col-form-label text-md-right">
+                                        <label for="rol1" class="col-md-4 col-form-label text-md-right">Rol del usuario:</label>
+                                        <select id="rol1" name="rol1" class="col-md-4 col-form-label text-md-right">
                                             <option value="administrador">Administrador</option>
                                             <option value="jefeCarrera">Jefe de Carrera</option>
                                             <option value="profesor">Profesor</option>
                                             <option value="secretaria">Secretaria</option>
                                         </select>
-                
-
                                     </div>
-
+                                    <div class="form-group row">
+                                        <label for="rol2" class="col-md-4 col-form-label text-md-right">Rol del usuario:</label>
+                                        <select id="rol2" name="rol2" class="col-md-4 col-form-label text-md-right">
+                                            <option value="jefeCarrera">Jefe de Carrera</option>
+                                            <option value="secretaria">Secretaria</option>
+                                        </select>
+                                    </div>
 
 
                                     <div class="form-group row">

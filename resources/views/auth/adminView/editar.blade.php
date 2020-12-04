@@ -8,7 +8,7 @@
                 <div class="panel-heading">Editar Usuario</div>
                 
                 <div class="panel-body">
-                
+                    <!--Metodo que recibe nuevos datos de un usuario para posteriomente editarlos en el metodo edit de menuAdmin -->
                     <form class="form-horizontal" action="{{route('menuAdmin.update', $users->id)}}" method="POST">
                     @method('PACH')
                     @csrf 
@@ -35,16 +35,16 @@
                         
                         <div class="form-cheack col-md-4">{{ __('Rol') }}
                         <br>
-                        <input type="checkbox" name="rol_usuario" value="administrador">
+                        <input type="checkbox" name="rol1" value="administrador">
                         <label >administrador</label>
                         <br>
-                        <input type="checkbox" name="rol_usuario"  value="profesor">
+                        <input type="checkbox" name="rol1"  value="profesor">
                         <label >Profesor</label>
                         <br>
-                        <input type="checkbox" name="rol_usuario" value="secretaria">
+                        <input type="checkbox" name="rol1" value="secretaria">
                         <label >secretaria</label>
                         <br>
-                        <input type="checkbox" name="rol_usuario" value="jefe de carrera">
+                        <input type="checkbox" name="rol1" value="jefe de carrera">
                         <label >jefe de carrera</label>
                         </div>
 
@@ -65,33 +65,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Contraseña</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" >
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                       <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirmar Contraseña</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div> 
+                        
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

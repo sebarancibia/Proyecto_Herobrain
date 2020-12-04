@@ -58,7 +58,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Crea al usuario con los parametros de llegada y le asigna un parametro activo true. 
      *
      * @param  array  $data
      * @return \App\User
@@ -69,7 +69,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'rol_usuario' => $data['rol_usuario'],
+            'rol1' => $data['rol1'],
+            'rol2' => $data['rol2'],
             'activo' =>true,
 
         ]);

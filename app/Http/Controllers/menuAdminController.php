@@ -8,7 +8,7 @@ use App\User;
 class menuAdminController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Retorna la lista de usuarios hacia la view menuAdmin
      *
      * @return \Illuminate\Http\Response
      */
@@ -51,7 +51,7 @@ class menuAdminController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Recibe una ID, busca a al usuario con la ID y retorna el usario hacia la vista editar
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -63,7 +63,7 @@ class menuAdminController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Recibe una Id del usuario y nuevos datos de usuario, busca el usuario con el id recibido y lo actualiza con los datos recibidos 
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -76,7 +76,8 @@ class menuAdminController extends Controller
         $users->name =$request->name;
         $users->email =$request->email;
         $users->password =bcrypt($request->password);
-        $users->rol_usuario =$request->rol_usuario;
+        $users->rol1 =$request->rol1;
+        $users->rol2 =$request->rol2;
         $users->activo=true;
         $users->update();
         
@@ -85,7 +86,7 @@ class menuAdminController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Recibe un ID, busca al usuario con ese id y cambia su esstado activo a false
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

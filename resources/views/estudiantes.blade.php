@@ -27,10 +27,10 @@
     </style>
 </head>
 <body>
-    <table id="est">
+    <table id="est" scope="row">
         <thead>
             <tr>
-                <th>RUT</th>
+                <th >RUT</th>
                 <th>APELLIDO PATERNO</th>
                 <th>APELLIDO MATERNO</th>
                 <th>NOMBRE</th>
