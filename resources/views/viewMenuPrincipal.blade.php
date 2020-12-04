@@ -26,7 +26,7 @@
                     @if(auth::user()->rol1 == 'secretaria' or auth::user()->rol1 == 'jefeCarrera')
                     <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="import-form">Cargar Estudiantes</a>
 
-                    <form method="put" action="{{ route ('menuPrincipal.show', auth::user() )}}">
+                    <form method="put" action="{{ route ('viewMenuPrincipal.show', auth::user() )}}">
 
                         @csrf
 

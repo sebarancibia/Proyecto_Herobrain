@@ -35,7 +35,7 @@ Route::get('/get-all-estudiante','EstudianteController@getAllEstudiante');
 
 Route::put('/import', 'EstudianteController@import')->name('import');
 
-Route::resource('menuPrincipal', 'menuController');
+Route::resource('viewMenuPrincipal', 'menuController');
 
 Route::resource('vericicacionRol', 'verificacionRol');
 

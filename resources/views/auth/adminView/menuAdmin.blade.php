@@ -42,7 +42,7 @@
                 <tr>
                     <th scope="row">{{$user->id}}</th>
                     <td>{{$user->name}}</td>
-                    <td>{{$user->rol1}} @isset($user->rol2), {{$user->rol2}} @endisset</td> <!-- @isset compureba si no es null, si existe ingresa-->
+                    <td>{{$user->rol1}} @isset($user->rol2) {{$user->rol2}} @endisset</td> 
                     <td>{{$user->email}}</td>
                     @if($user->activo==true)
                     <td>Activo</td>

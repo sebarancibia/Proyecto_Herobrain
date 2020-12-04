@@ -17,7 +17,7 @@
                     @if(auth::user()->rol1=='administrador')
                         <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://127.0.0.1:8000/menuAdmin">
                     @else
-                        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://127.0.0.1:8000/menuPrincipal">
+                        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://127.0.0.1:8000/viewMenuPrincipal">
                     @endif
                     
                 </div>
