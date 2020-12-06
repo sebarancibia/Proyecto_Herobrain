@@ -164,8 +164,9 @@ return [
 
         /*
         agregado
-        */
-        // \Maatwebsite\Excel\ExcelServiceProvider::class,
+        */ 
+        //Se importa el proveedor de servicios de la libreria Excel de Maatwebsite.
+        //Maatwebsite\Excel\ExcelServiceProvider::class,
 
 
         /*
@@ -237,7 +238,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
 
-
+        // Se termina de importar el proveedor de servicios de la libreria Excel de Maatwebsite.
         //'Excel' => \Maatwebsite\Excel\Facades\Excel::class,
 
     ],
