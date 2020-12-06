@@ -6,7 +6,7 @@
 <div class="container">
     <h1>No tienes permiso para registrar a un usuario</h1>
     </div>
-    @else
+    @else 
         @if(auth::user()->rol_usuario=='administrador')
 
             <div class="container">
