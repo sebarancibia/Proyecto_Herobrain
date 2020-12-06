@@ -19,7 +19,7 @@ class EstudianteImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Estudiante([
-            
+            // Este metodo relaciona cada variable de la base de datos con las columnas del archivo Excel.       
             'rut_estudiante' => $row['Rut'],
             'apellido_paterno' => $row['Apellido Paterno'],
             'apellido_materno' => $row['Apellido Materno'],

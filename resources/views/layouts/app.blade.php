@@ -79,6 +79,49 @@
             </div>
         </nav>
 
+        <div class="container" style="margin-top: 20px">
+            <!-- Mensajes de exito -->
+            @if(session('info'))
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="alert alert-success">
+                            {{ session('info') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+            @if(session('error'))
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+
+            <!-- Mensajes de error -->
+            @if(count($errors))
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+        </div>
+
         <main class="py-4">
             @yield('content')
             
