@@ -6,15 +6,15 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Editar Usuario</div>
-                
+
                 <div class="panel-body">
                     <!--Metodo que recibe nuevos datos de un usuario para posteriomente editarlos en el metodo edit de menuAdmin -->
                     <form class="form-horizontal" action="{{route('menuAdmin.update', $users->id)}}" method="POST">
-                    @method('PACH')
-                    @csrf 
-                
+                        @method('PACH')
+                        @csrf
 
-                    
+
+
                         {{ csrf_field() }}
                         {{method_field('PUT')}}
 
@@ -25,31 +25,54 @@
                                 <input id="$users->name" type="text" class="form-control" name="name" value="{{ $users->name}}">
 
                                 @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('username') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
 
-                        
-                        <div class="form-cheack col-md-4">{{ __('Rol') }}
-                        <br>
-                        <input type="checkbox" name="rol1" value="administrador">
-                        <label >administrador</label>
-                        <br>
-                        <input type="checkbox" name="rol1"  value="profesor">
-                        <label >Profesor</label>
-                        <br>
-                        <input type="checkbox" name="rol1" value="secretaria">
-                        <label >secretaria</label>
-                        <br>
-                        <input type="checkbox" name="rol1" value="jefe de carrera">
-                        <label >jefe de carrera</label>
+
+                        <div class="form-group row">
+
+                            <label for="rol" class="col-md-4 col-form-label "value="{{ $users->name}}">Rol del usuario:</label>
+                            <select id="rol" name="rol" class="col-md- col-form-label ">
+                                
+                                @if($users->rol=='administrador')
+                                    <option value="administrador"selected>Administrador</option>
+                                    <option value="jefeCarrera">Jefe de Carrera</option>
+                                    <option value="jefeCarreraProfesor" >Jefe de Carrera - Profesor</option>
+                                    <option value="profesor">Profesor</option>
+                                    <option value="secretaria">Secretaria</option>
+                                    @elseif($users->rol=='jefeCarrera')
+                                        <option value="administrador">Administrador</option>
+                                        <option value="jefeCarrera"selected>Jefe de Carrera</option>
+                                        <option value="jefeCarreraProfesor" >Jefe de Carrera - Profesor</option>
+                                        <option value="profesor">Profesor</option>
+                                        <option value="secretaria">Secretaria</option>
+                                        @elseif($users->rol=='jefeCarreraProfesor')
+                                            <option value="administrador">Administrador</option>
+                                            <option value="jefeCarrera" >Jefe de Carrera</option>
+                                            <option value="jefeCarreraProfesor"selected >Jefe de Carrera - Profesor</option>
+                                            <option value="profesor">Profesor</option>
+                                            <option value="secretaria">Secretaria</option>
+                                                @elseif($users->rol=='profesor')
+                                                <option value="administrador">Administrador</option>
+                                                <option value="jefeCarrera" >Jefe de Carrera</option>
+                                                <option value="jefeCarreraProfesor" >Jefe de Carrera - Profesor</option>
+                                                <option value="profesor"selected>Profesor</option>
+                                                <option value="secretaria">Secretaria</option>
+                                                    @elseif($users->rol=='secretaria')
+                                                        <option value="administrador">Administrador</option>
+                                                        <option value="jefeCarrera" >Jefe de Carrera</option>
+                                                        <option value="jefeCarreraProfesor">Jefe de Carrera - Profesor</option>
+                                                        <option value="profesor">Profesor</option>
+                                                        <option value="secretaria"selected>Secretaria</option>
+                                @endif
+                            </select>
                         </div>
 
 
-                       
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">Email</label>
@@ -58,14 +81,14 @@
                                 <input id="email" type="email" class="form-control" name="email" value="{{ $users->email }}">
 
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
 
-                        
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

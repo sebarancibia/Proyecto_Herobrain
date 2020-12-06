@@ -38,11 +38,15 @@
 
                 <!--Recorre la lista de usuarios y los imprime-->
                 @foreach($users as $user)
-                @if($user->rol1 !='administrador')
+                @if($user->rol !='administrador')
                 <tr>
                     <th scope="row">{{$user->id}}</th>
                     <td>{{$user->name}}</td>
-                    <td>{{$user->rol1}} @isset($user->rol2) {{$user->rol2}} @endisset</td> 
+                    @if($user->rol == 'administrador')<th scope="col">Administrador</th> @endif
+                    @if($user->rol == 'jefeCarrera')<th scope="col">Jefe de Carrera</th> @endif
+                    @if($user->rol == 'jefeCarreraProfesor')<th scope="col">Jefe de Carrera, Profesor</th> @endif
+                    @if($user->rol == 'secretaria')<th scope="col">Secretaria</th> @endif
+                    @if($user->rol == 'profesor')<th scope="col">Profesor</th> @endif
                     <td>{{$user->email}}</td>
                     @if($user->activo==true)
                     <td>Activo</td>

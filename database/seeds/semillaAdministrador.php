@@ -12,14 +12,14 @@ class semillaAdministrador extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        $user=App\User::create([
             'name' => 'admin',
-            'rol1' => 'administrador',
-            'rol2' => '',
+            'rol' => 'administrador',
             'activo' => true,
             'email' => 'admin@email.com',
             'password' => bcrypt('1'),
-
+            
         ]);
+        
     }
 }

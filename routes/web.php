@@ -37,5 +37,4 @@ Route::put('/import', 'EstudianteController@import')->name('import');
 
 Route::resource('viewMenuPrincipal', 'menuController');
 
-Route::resource('vericicacionRol', 'verificacionRol');
-
+Route::resource('reportarSituacion','situacionController');

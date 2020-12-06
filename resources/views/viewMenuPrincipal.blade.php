@@ -23,17 +23,22 @@
         <div class="col-5">
             <div class="panel-heading">
                 <div class="card">
-                    @if(auth::user()->rol1 == 'secretaria' or auth::user()->rol1 == 'jefeCarrera')
-                    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="import-form">Cargar Estudiantes</a>
+                    @if(auth::user()->rol == 'secretaria' or auth::user()->rol == 'jefeCarrera')
+                        <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="import-form">Cargar Estudiantes</a>
 
-                    <form method="put" action="{{ route ('viewMenuPrincipal.show', auth::user() )}}">
+                        <form method="put" action="{{ route ('viewMenuPrincipal.show', auth::user() )}}">
 
-                        @csrf
+                            @csrf
 
-                        <button class="btn btn-outline-primary"> Editar Usuario</button>
+                            <button class="btn btn-outline-primary"> Editar Usuario</button>
 
-                    </form>
+                        </form>
 
+                    @endif
+                    @if(auth::user()->rol == 'profesor')
+                    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="reportarSituacion">Reportar Situacion</a>
+                    <th scope="col">esto aun no esta implementado</th>
+                    
                     @endif
                 </div>
             </div>

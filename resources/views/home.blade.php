@@ -14,7 +14,7 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    @if(auth::user()->rol1=='administrador')
+                    @if(auth::user()->rol=='administrador')
                         <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://127.0.0.1:8000/menuAdmin">
                     @else
                         <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://127.0.0.1:8000/viewMenuPrincipal">
