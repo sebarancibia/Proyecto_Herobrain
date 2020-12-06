@@ -23,7 +23,7 @@ class EstudianteController extends Controller
 
     // este metodo ejecuta la importacion del archivo estudiantes.
     public function import2(ExcelStoreRequest $request){
-        Excel::import(new EstudianteImport, $request->file);
+        Excel::import(new EstudianteImport, $request->file2);
         return redirect('/get-all-estudiante');
     }
 }

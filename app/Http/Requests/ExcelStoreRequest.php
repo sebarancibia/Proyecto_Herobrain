@@ -23,7 +23,7 @@ class ExcelStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            "file2" => "required|mimes:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, text/csv",
+            "file2" => "required|mimes:xlsx,csv",
         ];
     }
 
