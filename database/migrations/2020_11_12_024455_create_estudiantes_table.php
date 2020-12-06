@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateEstudiantesTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Crea la base de datos para los estudiantes
      *
      * @return void
      */

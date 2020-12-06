@@ -21,28 +21,36 @@
 
                                     <div class="form-group row">
                                         <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
-
+                                       
                                         <div class="col-md-6">
-                                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                            @error('name')
+                                            <input onkeypress="return /[a-z]/i.test(event.key)" id="name" type="int" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus >
+                                                                                             
+                                            
+                                            @error('name')               
+                                                    
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
+                                             
+                                               
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                    
-                                        
                                         <label for="rol_usuario" class="col-md-4 col-form-label text-md-right">Rol del usuario:</label>
-                                        <select id="rol_usuario" name="rol_usuario" class="col-md-4 col-form-label text-md-right">
-                                            <option value="administrador">Administrador</option>
-                                            <option value="jefeCarrera">Jefe de Carrera</option>
-                                            <option value="profesor">Profesor</option>
-                                            <option value="secretaria">Secretaria</option>
-                                        </select>
+                                        <div class="col-md-6">
+                                        
+                                            
+                                            <select id="rol_usuario" name="rol_usuario" class="form-control">
+                                                <option value="administrador">Administrador</option>
+                                                <option value="jefeCarrera">Jefe de Carrera</option>
+                                                <option value="profesor">Profesor</option>
+                                                <option value="secretaria">Secretaria</option>
+                                            </select>
+                                        
+                                        </div>
+                                        
                 
 
                                     </div>
@@ -84,7 +92,7 @@
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                     </div>
                                 </div>
-
+                                
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
@@ -111,5 +119,6 @@
 
 
 @endguest
+
 
 @endsection

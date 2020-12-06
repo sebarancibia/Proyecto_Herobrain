@@ -8,18 +8,20 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    
+
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
+                    @if(auth::user()->rol=='administrador')
+                        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://127.0.0.1:8000/menuAdmin">
+                    @else
+                        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://127.0.0.1:8000/viewMenuPrincipal">
+                    @endif
+                    
                 </div>
             </div>
-                    @if(auth::user()->rol_usuario=='administrador')
-                        <a href="menuAdmin" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"> Siguiente</a>                    
-                    @endif
-                    
         </div>
     </div>
 </div>
