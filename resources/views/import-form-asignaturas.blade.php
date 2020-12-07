@@ -1,6 +1,23 @@
 @extends('layouts.app')
 @section('content')
- 
+<a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="viewMenuPrincipal">VOLVER</a>
+<a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="get-all-asignaturas">VER TABLA ACTUAL</a>
+<div>
+<div class="container">
+    <div align='center'>
+        <div class="col-5">
+            <div class="panel-heading">
+                <div class="card">
+                    <br>
+                    <br>
+                    <h1>CARGAR ASIGNATURAS</h1>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <div class="container" style="padding-top:80px;">
         <div class="row">
             <div class="col-md-6 offset-md-3">
