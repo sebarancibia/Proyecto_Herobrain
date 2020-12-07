@@ -62,7 +62,9 @@ class menuController extends Controller
     {
         $rut_estudiante = $request->rut_estudiante;
         $estudiantes=Estudiante::where('rut_estudiante',$rut_estudiante)->first();
-        $estudiantes=Estudiante::where('nombre_estudiante',$rut_estudiante)->first();
+        if($estudiantes == null){
+            $estudiantes=Estudiante::where('nombre_estudiante',$rut_estudiante)->first();
+        }        
         return view('editarCorreoEstudiante',compact('estudiantes'));
     }
 
