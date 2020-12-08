@@ -76,7 +76,12 @@ class menuController extends Controller
      */
     public function update(Request $request,$id)
     {
+     //   dd($id);
+        $estudiantes=Estudiante::find($id);
+        $estudiantes->correo_estudiante =$request->correo_estudiante;
+        $estudiantes->update();
         
+        return view('viewMenuPrincipal');
     }
 
     /**
