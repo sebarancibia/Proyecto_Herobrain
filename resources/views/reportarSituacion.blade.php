@@ -12,43 +12,91 @@
         </div>
     </div>
 
-    <div class="container card">
+    @foreach($estudiantes as $estudiante)
+    @endforeach
 
-        <form class="form-horizontal" id="formEdit" action="" method="POST">
-            @method('PATCH')
-            @csrf
-            <div class="side-bar">
-                <label for="rut_estudiante" class="col-md-6 control-label">RUT</label>
+    <form class="form-horizontal" action="{{ route ('reportarSituacion.edit', $estudiante->rut_estudiante )}}" method="put">
+        @csrf
+        <div class="container">
+            <label for="rut_estudiante" class="col-md-4 control-label">Ingrese RUT o Nombre a reportar</label>
 
-                <div class="col-md-4">
-                    <input id="rut_estudiante" type="rut_estudiante" class="form-control" name="rut_estudiante" value="">
-                    <button class="btn btn-primary">Cambiar</button>
-                </div>
-                
-                <div class="container_2 " align='center'>
-                    <div>
-                    <label for="name" class="col-md-4 control-label">Nombre:</label>
-                    <th scope="row">{{$estudiantes->nombre_estudiante}}</th>
-                    </div>
-                    <div>
-                    <label for="name" class="col-md-4 control-label">RUT:</label>
-                    <label for="name"  class="col-md-4 control-label">AAAA</label>
-                    </div>
-                    <div>
-                    <label for="name" class="col-md-4 control-label">Codigo Carrera:</label>
-                    <label for="name"  class="col-md-4 control-label">AAAA</label>
-                    </div>
-                    <div>
-                    <label for="name" class="col-md-4 control-label">Correo:</label>
-                    <label for="name"  class="col-md-4 control-label">AAAA</label>
-                    </div>
-                </div>
+            <div class="col-md-6">
+                <input id="rut_estudiante" type="rut_estudiante" class="form-control" name="rut_estudiante" value="">
+                <button class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="#">Buscar</button>
             </div>
 
-        </form>
+        </div>
+    </form>
 
 
+    <div class="card-body">
+        <table class="table">
+            <thead class="thead">
+                <tr class="bg-primary text-white">
+                    
+                @if($estudianteMostrar==null)
+                <div class="card-body card ">
+                    
+                        <h5 class="card-title card">Información del Estudiante</h5>
+                        <label class="col-md-8 control-label">Nombre del estudiante:</label>
+                        <label class="col-md-8 control-label">Rut del estudiante:</label>
+                        <label class="col-md-8 control-label">Nombre del estudiante:</label>
+                    </div>
+                    @else
+                    <div class="card-body card ">
+                        <h5 class="card-title card">Información del Estudiante</h5>
+                    
+                        <label class="col-md-8 control-label">Nombre del estudiante: {{$estudianteMostrar->nombre_estudiante}}</label>
+                        <label class="col-md-8 control-label">Rut del estudiante: {{$estudianteMostrar->rut_estudiante}}</label>
+                        <label class="col-md-8 control-label">Nombre del estudiante: {{$estudianteMostrar->nombre_estudiante}}</label>
+                    </div>
+                    
+                    @endif  
+                    
+                
+                <label for="rut_estudiante" class="col-md-8 control-label">Decripcion</label>
+                    <textarea class="form-control" name="descripcion"></textarea>
+                    
+                </tr>
+                </theard>
+        </table>
     </div>
+</div>
 
+<style type="text/css">
+#header {
+    width: 100%;
+    background-color: red;
+    height: 30px;
+}
 
-    @endsection
+#container {
+    width: 300px;
+    background-color: #ffcc33;
+    margin: auto;
+}
+#first {
+    width: 100px;
+    float: left;
+    height: 300px;
+        background-color: blue;
+}
+#second {
+    width: 200px;
+    float: left;
+    height: 300px;
+    background-color: green;
+}
+#clear {
+    clear: both;
+}
+</style>
+
+<div id="header" ></div>
+<div id="container">
+    <div id="first"><h1>hola</h1></div>
+    
+    <div id="second"><h1>bye</h1></div>
+    <div id="clear"><h1>micro</h1></div>
+</div>
+@endsection

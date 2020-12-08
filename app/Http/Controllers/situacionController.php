@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Estudiante;
+use App\User;
 
 class situacionController extends Controller
 {
@@ -45,7 +47,11 @@ class situacionController extends Controller
      */
     public function show($id)
     {
-        //
+        $estudiantes = Estudiante::all();
+        $estudianteMostrar=null;
+        return view('reportarSituacion',compact('estudiantes'),compact('estudianteMostrar'));
+
+        
     }
 
     /**
@@ -54,9 +60,15 @@ class situacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $rut_estudiante = $request->rut_estudiante;
+        $estudianteMostrar=Estudiante::where('rut_estudiante',$rut_estudiante)->first();
+        if($estudianteMostrar == null){
+            $estudianteMostrar=Estudiante::where('nombre_estudiante',$rut_estudiante)->first();
+        }   
+        $estudiantes=Estudiante::all();     
+        return view('reportarSituacion',compact('estudiantes'),compact('estudianteMostrar'));
     }
 
     /**
