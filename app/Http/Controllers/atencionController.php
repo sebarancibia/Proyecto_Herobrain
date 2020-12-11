@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Estudiante;
 use App\User;
-use App\situacion;
+use App\Atencion;
 use App\Asignatura;
 
-class situacionController extends Controller
+class atencionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class situacionController extends Controller
      */
     public function index()
     {
-        return view('reportarSituacion');
+        return view('reportarAtencion');
     }
 
     /**
@@ -27,12 +27,13 @@ class situacionController extends Controller
      */
     public function create(Request $request)
     {
-        $situacion=Situacion::create([
-            'descripcion' => $request->descripcion,
-            'tipo' => $request->tipo,
+        $situacion=Atencion::create([
             'rut_estudiante' => $request->rut_estudiante,
             'nombre_estudiante' => $request->nombre_estudiante,
-            'nombre_asignatura' => $request->asignatura,            
+            'descripcion' => $request->descripcion,
+            'medio' => $request->medio,
+            'nombre_asignatura' => $request->asignatura,
+            'nombre_profesor' => $request->profesor            
         ]);
         return view('viewMenuPrincipal');
     }
@@ -45,6 +46,7 @@ class situacionController extends Controller
      */
     public function store(Request $request)
     {
+        //
     }
 
     /**
@@ -53,13 +55,11 @@ class situacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
-    {
+    public function show($id)
+    {   
         $estudiantes = Estudiante::all();
         $estudianteMostrar=null;
-        return view('reportarSituacion',compact('estudiantes'),compact('estudianteMostrar'));
-
-        
+        return view('reportarAtencion',compact('estudiantes'),compact('estudianteMostrar'));
     }
 
     /**
@@ -71,13 +71,14 @@ class situacionController extends Controller
     public function edit(Request $request)
     {
         $asignaturas = Asignatura::all();
+        $usuarios = User::all();
         $rut_estudiante = $request->rut_estudiante;
         $estudianteMostrar=Estudiante::where('rut_estudiante',$rut_estudiante)->first();
         if($estudianteMostrar == null){
             $estudianteMostrar=Estudiante::where('nombre_estudiante',$rut_estudiante)->first();
         }   
         $estudiantes=Estudiante::all();     
-        return view('reportarSituacion',compact('estudiantes','estudianteMostrar','asignaturas'));
+        return view('reportarAtencion',compact('estudiantes','estudianteMostrar','usuarios','asignaturas'));
     }
 
     /**

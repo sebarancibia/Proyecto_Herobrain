@@ -6,7 +6,7 @@
         <div class="col-5">
             <div class="panel-heading">
                 <div class="card">
-                    <h1 class="panel-heading">Reportar Situación</h1>
+                    <h1 class="panel-heading">Registrar Atención</h1>
                 </div>
             </div>
         </div>
@@ -19,11 +19,11 @@
         <br>
         <div class="row">
             <div class="col-md-6">
-                <form class="form-horizontal" action="{{ route ('reportarSituacion.edit', $estudiante->rut_estudiante )}}" method="put">
+                <form class="form-horizontal" action="{{ route ('reportarAtencion.edit', $estudiante->rut_estudiante )}}" method="put">
                     @csrf
                     <div class="container">
                         <br><br>
-                        <h5 class="card-title card col-md-8">Ingrese RUT o Nombre a reportar</h5>
+                        <h5 class="card-title card col-md-8">Ingrese RUT o Nombre del estudiante atendido</h5>
                         <br>
                         <div class="col-md-7">
                             <input id="rut_estudiante" type="text" class="form-control" name="rut_estudiante" value="Por favor busque el estudiante">
@@ -60,8 +60,8 @@
 
     @if($estudianteMostrar != null)
         
-        <form class="form-horizontal" action="{{route('reportarSituacion.create')}}" method="put">
-            <!--ACA FALTA VER LA RUTA, FALTA NOMBRE ASIGNATURA(LISTO), RUT ESTUDIANTE(LISTO), NOMBRE ESTUDIANTE(LISTO), TIPO(LISTO), DESCRIPCION(LISTO)-->
+        <form class="form-horizontal" action="{{route('reportarAtencion.create')}}" method="put">
+            <!--ACA FALTA VER LA RUTA, FALTA NOMBRE ASIGNATURA(LISTO), RUT ESTUDIANTE(LISTO), NOMBRE ESTUDIANTE(LISTO), MEDIO(listo), DESCRIPCION(LISTO), PROFESOR(listo)-->
             
             <!---->
             @method('PACH')
@@ -85,11 +85,12 @@
             </div>
 
             <div class="form-group row">
-                <label for="tipo" class="col-md-4 col-form-label text-md-right">Tipo de situación:</label>
+                <label for="medio" class="col-md-4 col-form-label text-md-right">Medio de la entrevista:</label>
                 <div class="col-md-6">
-                    <select id="tipo" name="tipo" class="form-control">
-                        <option value="academica">Académica</option>
-                        <option value="personal">Personal</option>
+                    <select id="medio" name="medio" class="form-control">
+                        <option value="personal">Entrevista Personal</option>
+                        <option value="correo_electronico">Correo Electrónico</option>
+                        <option value="otro">Otro</option>
                     </select>
                 </div>
             </div>
@@ -99,6 +100,21 @@
                     <select id="asignatura" name="asignatura" class="form-control">
                         @foreach($asignaturas as $asignatura) 
                             <option value="{{$asignatura->nombre_asignatura}}">{{$asignatura->nombre_asignatura}}</option> 
+                        @endforeach
+                        <option value="ingSoftware">Ing. Software</option>
+                        <option value="redesComputadores">Redes de Computadores</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="profesor" class="col-md-4 col-form-label text-md-right">Profesor:</label>
+                <div class="col-md-6">
+                    <select id="profesor" name="profesor" class="form-control">
+                        @foreach($usuarios as $usuario)
+                            @if($usuario->rol=='profesor' or $usuario->rol=='jefeCarreraProfesor')
+                                <option value="{{$usuario->name}}">{{$usuario->name}}</option> 
+                            @endif
                         @endforeach
                     </select>
                 </div>
