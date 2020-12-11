@@ -29,7 +29,7 @@
                             <label for="correo_estudiante" class="col-md-4 control-label">Correo del Estudiante</label>
 
                             <div class="col-md-6">
-                                <input id="$estudiantes->correo_estudiante" type="text" class="form-control" name="correo_estudiante" value="{{ $estudiantes->correo_estudiante}}">
+                                <input id="$estudiantes->correo_estudiante" type="email" class="form-control @error('email') is-invalid @enderror"  required autocomplete="email" name="correo_estudiante" value="{{ $estudiantes->correo_estudiante}}">
 
                                 
                             </div>
