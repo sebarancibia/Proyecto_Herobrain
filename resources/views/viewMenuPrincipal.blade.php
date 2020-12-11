@@ -29,14 +29,8 @@
                         
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="import-form-asignaturas">Cargar Asignaturas</a>
 
-                        <form method="put" action="{{ route ('viewMenuPrincipal.show', auth::user() )}}">
-
-                            @csrf
-
-                            <button class="btn btn-outline-primary"> Editar Usuario</button>
-
-                        </form>
-
+                        <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('viewMenuPrincipal.show', auth::user() )}}">Editar Usuario</a>
+                        
                     @endif
                     @if(auth::user()->rol == 'profesor')
                     <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="reportarSituacion">Reportar Situacion</a>
