@@ -25,7 +25,12 @@
                 <div class="card">
                     @if(auth::user()->rol == 'secretaria' or auth::user()->rol == 'jefeCarrera')
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="import-form">Cargar Estudiantes</a>
+
+                        
+                        <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="import-form-asignaturas">Cargar Asignaturas</a>
+
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('viewMenuPrincipal.show', auth::user() )}}">Editar Usuario</a>
+                 
                     @endif
                     @if(auth::user()->rol == 'profesor')
                     <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="reportarSituacion">Reportar Situacion</a>

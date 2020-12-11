@@ -10,6 +10,8 @@
   <title>Asignaturas</title>
 
 </head>
+
+<a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="{{ url()->previous() }}">VOLVER</a>
 <table class="table">
   <thead class="thead-dark">
     <tr>
