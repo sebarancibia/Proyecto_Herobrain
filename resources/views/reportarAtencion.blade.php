@@ -101,8 +101,6 @@
                         @foreach($asignaturas as $asignatura) 
                             <option value="{{$asignatura->nombre_asignatura}}">{{$asignatura->nombre_asignatura}}</option> 
                         @endforeach
-                        <option value="ingSoftware">Ing. Software</option>
-                        <option value="redesComputadores">Redes de Computadores</option>
                     </select>
                 </div>
             </div>
