@@ -70,22 +70,47 @@ class menuAdminController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request,$id)
+  /*  public function update(Request $request,$id)
     {
+        var x = new Boolean(false);
         $users=User::findOrFail($id);
         $users->name =$request->name;
-        $users->email =$request->email;
         $users->password =bcrypt($request->password);
         $users->rol =$request->rol;
         $users->activo=true;
+        for ($i=0; $i <$users ; $i++) { 
+            if($users->email==$request->email){
+                x=false;
+            }
+        }
+        if(x){
+            $users->email =$request->email; 
+        }
+        $users = User::all();
         $users->update();
+        return view('auth.adminView.menuAdmin',compact('users'));
+
         
+    }
+    */
+    public function update( Request $request, $id ) {
+        $users=User::findOrFail($id);
+      $this->validate(
+           $request,
+            [
+                'email'                => "required|email|unique:users,email,{$id}",
+                $users->email=$request->email,
+            ]
+        );
+        $users->name =$request->name;
+        $users->rol =$request->rol;
+        $users->update();
         $users = User::all();
         return view('auth.adminView.menuAdmin',compact('users'));
     }
 
     /**
-     * Recibe un ID, busca al usuario con ese id y cambia su esstado activo a false
+     * Recibe un ID, busca al usuario con ese id y cambia su estado activo a false
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
