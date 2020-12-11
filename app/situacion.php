@@ -9,9 +9,9 @@ class situacion extends Model
     protected $fillable = [
         'descripcion',
         'tipo',
-        'rutEstudiante',
-        'nombreEstudiante',
-        'nombreAsignatura'
+        'rut_estudiante',
+        'nombre_estudiante',
+        'nombre_asignatura'
 
     ];
 }

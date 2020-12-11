@@ -18,9 +18,9 @@ class CreateSituacionsTable extends Migration
             $table->timestamps();
             $table->string('descripcion');
             $table->string('tipo');
-            $table->string('rutEstudiante');
-            $table->string('nombreEstudiante');
-            $table->string('nombreAsignatura');
+            $table->string('rut_estudiante');
+            $table->string('nombre_estudiante');
+            $table->string('nombre_asignatura');
         });
     }
 

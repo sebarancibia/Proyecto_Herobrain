@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Estudiante;
 use App\User;
-
-use APP\Situacion;
+use App\situacion;
 
 class situacionController extends Controller
 {
@@ -27,7 +26,14 @@ class situacionController extends Controller
      */
     public function create(Request $request)
     {
-        //
+        $situacion=Situacion::create([
+            'descripcion' => $request->descripcion,
+            'tipo' => $request->tipo,
+            'rut_estudiante' => $request->rut_estudiante,
+            'nombre_estudiante' => $request->nombre_estudiante,
+            'nombre_asignatura' => $request->asignatura,            
+        ]);
+        return view('viewMenuPrincipal');
     }
 
     /**
@@ -36,9 +42,8 @@ class situacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $descripcion, $tipo, $asignatura)
+    public function store(Request $request)
     {
-        dd($request);
     }
 
     /**
