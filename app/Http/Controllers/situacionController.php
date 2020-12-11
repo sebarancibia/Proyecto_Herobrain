@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Estudiante;
 use App\User;
 
+use APP\Situacion;
+
 class situacionController extends Controller
 {
     /**
@@ -23,7 +25,7 @@ class situacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
     }
@@ -34,9 +36,9 @@ class situacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $descripcion, $tipo, $asignatura)
     {
-        //
+        dd($request);
     }
 
     /**
@@ -45,7 +47,7 @@ class situacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
         $estudiantes = Estudiante::all();
         $estudianteMostrar=null;
