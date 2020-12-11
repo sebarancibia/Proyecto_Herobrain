@@ -6,8 +6,8 @@
 <div class="container">
     <h1>No tienes permiso para registrar a un usuario</h1>
     </div>
-    @else
-        @if(auth::user()->rol_usuario=='administrador')
+    @else 
+        @if(auth::user()->rol=='administrador')
 
             <div class="container">
                 <div class="row justify-content-center">
@@ -38,13 +38,14 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="rol_usuario" class="col-md-4 col-form-label text-md-right">Rol del usuario:</label>
+                                        <label for="rol" class="col-md-4 col-form-label text-md-right">Rol del usuario:</label>
                                         <div class="col-md-6">
                                         
                                             
-                                            <select id="rol_usuario" name="rol_usuario" class="form-control">
+                                            <select id="rol" name="rol" class="form-control">
                                                 <option value="administrador">Administrador</option>
                                                 <option value="jefeCarrera">Jefe de Carrera</option>
+                                                <option value="jefeCarreraProfesor">Jefe de Carrera - Profesor</option>
                                                 <option value="profesor">Profesor</option>
                                                 <option value="secretaria">Secretaria</option>
                                             </select>

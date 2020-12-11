@@ -17,8 +17,8 @@ class semillaAdministrador extends Seeder
             'activo' => true,
             'email' => 'admin@email.com',
             'password' => bcrypt('1'),
-
-
+            
+            
         ]);
         $user=App\User::create([
             'name' => 'profe',
@@ -26,8 +26,8 @@ class semillaAdministrador extends Seeder
             'activo' => true,
             'email' => 'p@email.com',
             'password' => bcrypt('1'),
-
-
+            
+            
         ]);
         $user=App\User::create([
             'name' => 'jefe',
@@ -35,8 +35,8 @@ class semillaAdministrador extends Seeder
             'activo' => true,
             'email' => 'j@email.com',
             'password' => bcrypt('1'),
-
-
+            
+            
         ]);
         $user=App\User::create([
             'name' => 'secretaria',
@@ -44,8 +44,8 @@ class semillaAdministrador extends Seeder
             'activo' => true,
             'email' => 's@email.com',
             'password' => bcrypt('1'),
-
-
+            
+            
         ]);
     }
 }

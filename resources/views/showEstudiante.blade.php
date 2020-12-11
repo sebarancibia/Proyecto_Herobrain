@@ -2,19 +2,23 @@
 
 @section('content')
 
-<form class="form-horizontal" id = "formEdit" action="" method="POST">
-    @method('PATCH')
+@foreach($estudiantes as $estudiante)
+@endforeach
+
+<form class="form-horizontal" action="{{ route ('viewMenuPrincipal.edit', $estudiante->rut_estudiante )}}" method="put">
     @csrf
     <div class="container">
-        <label for="rut_estudiante" class="col-md-4 control-label">RUT</label>
+        <label for="rut_estudiante" class="col-md-4 control-label">Ingrese RUT o Nombre del estudiante</label>
 
         <div class="col-md-6">
             <input id="rut_estudiante" type="rut_estudiante" class="form-control" name="rut_estudiante" value="">
+            <button class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="#">Cambiar</button>
         </div>
-        <button class="btn btn-primary">Cambiar</button>
+        
     </div>
 </form>
 
+<!-- validar que si o si entra un dato, validar en caso de que no se encuentre-->
 
 
 <!-- CAMBIAR VISUAL-->
@@ -39,12 +43,13 @@
                     <td>{{$estudiante->apellido_paterno}}</td>
                     <td>{{$estudiante->apellido_materno}}</td>
                     <td>{{$estudiante->correo_estudiante}}</td>
-
-                    @endforeach
+                </tr>
+                @endforeach
             </tbody>
         </table>
 
     </div>
 </div>
+
 
 @endsection
