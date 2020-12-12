@@ -14,8 +14,7 @@ class menuAdminController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('auth.adminView.menuAdmin',compact('users'));
+        return view('auth.adminView.menuAdmin');
     }
 
     /**
@@ -47,7 +46,8 @@ class menuAdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $users = User::all();
+        return view('auth.adminView.mostrarUsuarios',compact('users'));
     }
 
     /**

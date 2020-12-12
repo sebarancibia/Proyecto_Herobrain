@@ -5,18 +5,30 @@
 @foreach($estudiantes as $estudiante)
 @endforeach
 
-<form class="form-horizontal" action="{{ route ('viewMenuPrincipal.edit', $estudiante->rut_estudiante )}}" method="put">
-    @csrf
-    <div class="container">
-        <label for="rut_estudiante" class="col-md-4 control-label">Ingrese RUT o Nombre del estudiante</label>
-
-        <div class="col-md-6">
-            <input id="rut_estudiante" type="rut_estudiante" class="form-control" name="rut_estudiante" value="">
-            <button class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="#">Cambiar</button>
+<div class="container">
+    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="http://127.0.0.1:8000/viewMenuPrincipal">Regresar menu principal</a>
+    <div align='center'>
+        <div class="col-5">
+            <div class="card-header-pills">
+                <h1>Editar Correo Estudiate</h1>
+            </div>
         </div>
-        
+        <form class="form-horizontal" action="{{ route ('viewMenuPrincipal.edit', $estudiante->rut_estudiante )}}" method="put">
+            @csrf
+            <div class="container">
+                <label for="rut_estudiante" class="col-md-4 control-label">Ingrese RUT o Nombre del estudiante</label>
+
+                <div class="col-md-6">
+                    <input id="rut_estudiante" type="rut_estudiante" class="form-control" name="rut_estudiante" value="">
+                    <button class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="#">Cambiar</button>
+                </div>
+
+            </div>
+        </form>
     </div>
-</form>
+</div>
+
+
 
 <!-- validar que si o si entra un dato, validar en caso de que no se encuentre-->
 

@@ -4,14 +4,24 @@
 @section('content')
 <!-- pagina para desplegar tabla asignaturas-->
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asignaturas</title>
+<div class="container">
+    <div align='center'>
+        <div class="col-5">
+            <div class="card-header-pills">
+                <h1>Tabla Asignaturas</h1>
+            </div>
+        </div>
+    </div>
+</div>
 
-</head>
-
-<a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="{{ url()->previous() }}">VOLVER</a>
+<div class="panel-body">
+    <div class="card-body">
+        <div class="card-body align-content-center">
+            <div class="btn-group-vertical">
+                <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="{{ url()->previous() }}">Regresar cargar asignaturas</a>
+                <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="viewMenuPrincipal">Regresar menu principal</a>
+            </div>
+        </div>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -30,4 +40,6 @@
       @endforeach
   </tbody>
 </table>
+</div>
+</div>
 @endsection
