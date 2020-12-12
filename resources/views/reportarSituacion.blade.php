@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="http://127.0.0.1:8000/viewMenuPrincipal">Regresar menú principal</a>
     <div align='center'>
         <div class="col-5">
             <div class="panel-heading">
@@ -15,7 +16,7 @@
     @foreach($estudiantes as $estudiante)
     @endforeach
 
-    <div class="container">
+    <div class="container card">
         <br>
         <div class="row">
             <div class="col-md-6">
@@ -26,7 +27,8 @@
                         <h5 class="card-title card col-md-8">Ingrese RUT o Nombre a reportar</h5>
                         <br>
                         <div class="col-md-7">
-                            <input id="rut_estudiante" type="text" class="form-control" name="rut_estudiante" value="Por favor busque el estudiante">
+                            <input id="rut_estudiante" type="text" class="form-control" name="rut_estudiante" placeholder="Por favor busque el estudiante">
+                            <br>
                             <button class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="#">Buscar</button>
                         </div>
 
@@ -54,13 +56,14 @@
                     <label class="col-md-8 control-label">Correo del estudiante: {{$estudianteMostrar->correo_estudiante}}</label>
                 </div>
                 @endif
+                <br>
             </div>
         </div>
     </div>
 
     @if($estudianteMostrar != null)
         
-        <form class="form-horizontal" action="{{route('reportarSituacion.create')}}" method="put">
+        <form class="form-horizontal card" action="{{route('reportarSituacion.create')}}" method="put">
             <!--ACA FALTA VER LA RUTA, FALTA NOMBRE ASIGNATURA(LISTO), RUT ESTUDIANTE(LISTO), NOMBRE ESTUDIANTE(LISTO), TIPO(LISTO), DESCRIPCION(LISTO)-->
             
             <!---->
@@ -103,9 +106,10 @@
                     </select>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" style="margin-bottom:20px;float:right">
-                Enviar Reporte
-            </button>
+            <div class="card-body">
+                <button type="submit" class="btn btn-primary" style="float:right">Enviar Reporte</button>
+            </div>
+            
         </form>
     @endif
 </div>

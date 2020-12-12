@@ -4,7 +4,7 @@
 
 <div class="container">
     <div align='center'>
-        <div class="col-5">
+        <div class="col-5 card">
             <div class="card-header-pills">
                 <h1>Tabla Estudiantes</h1>
             </div>
@@ -17,18 +17,18 @@
         <div class="card-body align-content-center">
             <div class="btn-group-vertical">
                 <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="{{ url()->previous() }}">Regresar cargar estudiantes</a>
-                <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="viewMenuPrincipal">Regresar menu principal</a>
+                <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="viewMenuPrincipal">Regresar menú principal</a>
             </div>
         </div>
         <table class="table">
-            <thead class="thead-dark">
+            <thead class="bg-primary text-white">
                 <tr>
-                    <th scope="col">RUT</th>
-                    <th scope="col">APELLIDO PATERNO</th>
-                    <th scope="col">APELLIDO MATERNO</th>
-                    <th scope="col">NOMBRE</th>
-                    <th scope="col">CODIGO CARRERA</th>
-                    <th scope="col">CORREO</th>
+                    <th scope="col">Rut</th>
+                    <th scope="col">Apellido paterno</th>
+                    <th scope="col">Apellido materno</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Código carrera</th>
+                    <th scope="col">Correo</th>
                 </tr>
             </thead>
             <tbody>

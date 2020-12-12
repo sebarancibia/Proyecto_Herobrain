@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="viewMenuPrincipal">Regresar menu principal</a>
+    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="viewMenuPrincipal">Regresar menú principal</a>
     <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="get-all-asignaturas">Ver tabla actual</a>
     <div align='center'>
         <div class="col-5">

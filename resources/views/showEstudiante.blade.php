@@ -6,26 +6,30 @@
 @endforeach
 
 <div class="container">
-    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="http://127.0.0.1:8000/viewMenuPrincipal">Regresar menu principal</a>
+    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="http://127.0.0.1:8000/viewMenuPrincipal">Regresar menú principal</a>
     <div align='center'>
         <div class="col-5">
-            <div class="card-header-pills">
-                <h1>Editar Correo Estudiate</h1>
+            <div class="card-header-pills card">
+                <h1>Editar Correo Estudiante</h1>
             </div>
+            <br>
         </div>
-        <form class="form-horizontal" action="{{ route ('viewMenuPrincipal.edit', $estudiante->rut_estudiante )}}" method="put">
+       
+    </div>
+    <form class="form-horizontal" action="{{ route ('viewMenuPrincipal.edit', $estudiante->rut_estudiante )}}" method="put">
             @csrf
-            <div class="container">
-                <label for="rut_estudiante" class="col-md-4 control-label">Ingrese RUT o Nombre del estudiante</label>
+            <div class="container card">
+                <br>
+                <h5 for="rut_estudiante" class="card-title col-md-5">Ingrese RUT o Nombre del estudiante</h5>
 
                 <div class="col-md-6">
                     <input id="rut_estudiante" type="rut_estudiante" class="form-control" name="rut_estudiante" value="">
+                    <br>
                     <button class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="#">Cambiar</button>
                 </div>
 
             </div>
         </form>
-    </div>
 </div>
 
 
