@@ -13,7 +13,7 @@
 </div>
 
 <div class="card-body align-content-center">
-<a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="{{ route ('menuAdmin.index')}}">Regresar menu principal</a>
+<a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="{{ route ('menuAdmin.index')}}">Regresar menú principal</a>
 <div class="panel-body">
     <div class="card-body">
         <table class="table">

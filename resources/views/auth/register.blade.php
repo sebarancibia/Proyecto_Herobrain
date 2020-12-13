@@ -10,7 +10,7 @@
 @if(auth::user()->rol=='administrador')
 
 <div class="container">
-    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="{{ route ('menuAdmin.index')}}">Regresar menu principal</a>
+    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="{{ route ('menuAdmin.index')}}">Regresar menú principal</a>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

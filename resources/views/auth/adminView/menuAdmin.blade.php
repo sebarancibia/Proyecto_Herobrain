@@ -10,7 +10,7 @@
                 <div class="card">
                     <br>
                     <br>
-                    <h1>MENU ADMINISTRADOR</h1>
+                    <h1>MENÚ ADMINISTRADOR</h1>
                     <br>
                     <br>
                 </div>
