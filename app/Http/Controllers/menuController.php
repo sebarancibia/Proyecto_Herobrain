@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Estudiante;
 use App\User;
+use Illuminate\Contracts\Validation\Rule;
+use App\Http\Controllers\SomeCustomException;
 
 class menuController extends Controller
 {
@@ -47,9 +49,15 @@ class menuController extends Controller
      */
     public function showEditEstudiante()
     {
+    
         $estudiantes = Estudiante::all();
-       // dd($estudiantes);
-        return view('showEstudiante',compact('estudiantes'));
+       // if(){
+         //     return view('viewMenuPrincipal');  
+       // }
+    
+        return view('showEstudiante',compact('estudiantes')); 
+        
+         
     }
 
     /**
@@ -76,10 +84,19 @@ class menuController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $estudiantes=Estudiante::find($id);
-        $estudiantes->correo_estudiante =$request->correo_estudiante;
+       // dd($request);
+        $estudiantes=Estudiante::findOrFail($id);
+        $this->validate(
+           $request,
+             [
+                'email'                => "required|email|unique:estudiantes,correo_estudiante,{$id}",
+               
+             ]
+         ); 
+
+        $estudiantes->correo_estudiante=$request->email;
         $estudiantes->update();
-        
+        $estudiantes = Estudiante::all();
         return view('viewMenuPrincipal');
     }
 
