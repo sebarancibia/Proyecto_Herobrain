@@ -28,7 +28,7 @@
                         
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="import-form-asignaturas">Cargar Asignaturas</a>
 
-                        <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('viewMenuPrincipal.show', auth::user() )}}">Editar Estudiante</a>
+                        <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('showEditEstudiante') }}">Editar Estudiante</a>
 
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('reportarAtencion.show', auth::user() )}}">Registrar Atención</a>
 
@@ -41,7 +41,7 @@
                         
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="import-form-asignaturas">Cargar Asignaturas</a>
 
-                        <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('viewMenuPrincipal.show', auth::user() )}}">Editar Estudiante</a>
+                        <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('showEditEstudiante') }}">Editar Estudiante</a>
 
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('reportarAtencion.show', auth::user() )}}">Registrar Atención</a>
 

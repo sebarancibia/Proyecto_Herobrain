@@ -17,15 +17,18 @@ class EstudianteImport implements ToModel, WithHeadingRow
     * @return \Illuminate\Database\Eloquent\Model|null
     */
     public function model(array $row)
-    {
-        return new Estudiante([
-            // Este metodo relaciona cada variable de la base de datos con las columnas del archivo Excel.       
-            'rut_estudiante' => $row['Rut'],
-            'apellido_paterno' => $row['Apellido Paterno'],
-            'apellido_materno' => $row['Apellido Materno'],
-            'nombre_estudiante' => $row['Nombre'],
-            'codigo_carrera' => $row['Carrera'],
-            'correo_estudiante' => $row['Correo']
-        ]);
+    {   
+        $estudiante = Estudiante::where('rut_estudiante', $row['Rut'])->first();
+        if(!$estudiante){
+            return new Estudiante([
+                // Este metodo relaciona cada variable de la base de datos con las columnas del archivo Excel.       
+                'rut_estudiante' => $row['Rut'],
+                'apellido_paterno' => $row['Apellido Paterno'],
+                'apellido_materno' => $row['Apellido Materno'],
+                'nombre_estudiante' => $row['Nombre'],
+                'codigo_carrera' => $row['Carrera'],
+                'correo_estudiante' => $row['Correo']
+            ]);
+        }
     }
 }

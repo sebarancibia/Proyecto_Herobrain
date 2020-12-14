@@ -45,7 +45,7 @@ class menuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function showEditEstudiante()
     {
         $estudiantes = Estudiante::all();
        // dd($estudiantes);
@@ -58,13 +58,13 @@ class menuController extends Controller
      * @param  $dato
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
-    {
+    public function editEstudianteRut(Request $request)
+    {   
         $rut_estudiante = $request->rut_estudiante;
         $estudiantes=Estudiante::where('rut_estudiante',$rut_estudiante)->first();
-        if($estudiantes == null){
-            $estudiantes=Estudiante::where('nombre_estudiante',$rut_estudiante)->first();
-        }        
+        if(Estudiante::where('rut_estudiante',$rut_estudiante)->first() == null) {
+            return back()->with('error', 'El RUT o Nombre del estudiante no existe');
+        }
         return view('editarCorreoEstudiante',compact('estudiantes'));
     }
 
