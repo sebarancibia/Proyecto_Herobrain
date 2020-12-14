@@ -43,6 +43,10 @@ Route::put('/import2', 'EstudianteController@import2')->name('import2');
 
 Route::resource('viewMenuPrincipal', 'menuController');
 
+Route::get('showEditEstudiante', 'menuController@showEditEstudiante')->name('showEditEstudiante');
+
+Route::post('editEstudianteRut', 'menuController@editEstudianteRut')->name('editEstudianteRut');
+
 Route::get('/get-all-asignaturas','AsignaturaController@getAllAsignaturas');
 // ruta para desplegar tabla asignaturas.
 // ruta para importar archivo.

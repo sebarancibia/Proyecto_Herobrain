@@ -2,36 +2,49 @@
 
 @section('content')
 
-@foreach($estudiantes as $estudiante)
-@endforeach
-
 <div class="container">
     <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="http://127.0.0.1:8000/viewMenuPrincipal">Regresar menú principal</a>
     <div align='center'>
         <div class="col-5">
             <div class="card-header-pills card">
+                <br>
                 <h1>Editar Correo Estudiante</h1>
+                <br>
             </div>
             <br>
         </div>
        
     </div>
-    <form class="form-horizontal" action="{{ route ('viewMenuPrincipal.edit', $estudiante->rut_estudiante )}}" method="put">
-            @csrf
-            <div class="container card">
-                <br>
-                <h5 for="rut_estudiante" class="card-title col-md-5">Ingrese RUT o Nombre del estudiante</h5>
-
+    <form class="form-horizontal" action="{{ route ('editEstudianteRut' )}}" method="post">
+        @csrf
+        <div class="container card">
+            <br>
+            <div class="row justify-content-md-center">
                 <div class="col-md-6">
-                    <input id="rut_estudiante" type="rut_estudiante" class="form-control" name="rut_estudiante" value="">
-                    <br>
-                    <button class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="#">Cambiar</button>
+                <h5 for="rut_estudiante" class="card-title">Ingrese RUT o Nombre del estudiante</h5>
+                    <select name="rut_estudiante" class="form-control" id="nameid">
+                        <option></option>
+                        @foreach($estudiantes as $d)
+                            <option value="{{$d->rut_estudiante}}">{{$d->rut_estudiante}} | {{$d->nombre_estudiante}} {{$d->apellido_paterno}} {{$d->apellido_materno}}</option>
+                        @endforeach
+                    </select>
                 </div>
-
             </div>
-        </form>
+            <br>
+            <div class="col-md-9">
+                <button class=" btn btn-outline-primary " style="margin-bottom:20px;float:right" href="#">Cambiar</button>
+            </div>
+        </div>
+    </form>
 </div>
 
+<script type="text/javascript">
+
+      $("#nameid").select2({
+            placeholder: "Seleccione un nombre",
+            allowClear: true
+        });
+</script>
 
 
 <!-- validar que si o si entra un dato, validar en caso de que no se encuentre-->
