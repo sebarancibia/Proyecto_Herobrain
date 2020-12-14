@@ -70,29 +70,7 @@ class menuAdminController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-  /*  public function update(Request $request,$id)
-    {
-        var x = new Boolean(false);
-        $users=User::findOrFail($id);
-        $users->name =$request->name;
-        $users->password =bcrypt($request->password);
-        $users->rol =$request->rol;
-        $users->activo=true;
-        for ($i=0; $i <$users ; $i++) { 
-            if($users->email==$request->email){
-                x=false;
-            }
-        }
-        if(x){
-            $users->email =$request->email; 
-        }
-        $users = User::all();
-        $users->update();
-        return view('auth.adminView.menuAdmin',compact('users'));
-
-        
-    }
-    */
+ 
     public function update( Request $request, $id ) {
         $users=User::findOrFail($id);
       $this->validate(

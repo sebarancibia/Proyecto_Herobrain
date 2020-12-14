@@ -20,7 +20,7 @@ class CreateEstudiantesTable extends Migration
             $table->string('apellido_materno');
             $table->string('nombre_estudiante');
             $table->integer('codigo_carrera');
-            $table->string('correo_estudiante');
+            $table->string('correo_estudiante')->unique();
             $table->timestamps();
         });
     }
