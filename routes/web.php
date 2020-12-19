@@ -59,3 +59,8 @@ Route::resource('reportarAtencion','atencionController');
 Route::resource('fichaController','FichaController');
 
 Route::post('buscarEstudianteRut', 'FichaController@buscarEstudianteRut')->name('buscarEstudianteRut');
+
+
+Route::get('/situacion/{id}', 'FichaController@mostrarSituacion')->name('mostrarSituacion');
+
+Route::get('/Atencion/{id}', 'FichaController@mostrarAtencion')->name('mostrarAtencion');

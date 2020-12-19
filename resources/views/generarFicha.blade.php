@@ -81,26 +81,25 @@
         <thead class="thead-primary">
             <tr class="bg-primary text-white">
                 <th scope="col">ID</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Hora</th>
+                <th scope="col">Fecha/Hora</th>
                 <th scope="col">Descripción</th>
-                <th scope="col">Detalles</th>
+                <th scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
             @foreach($atenciones as $atencion)
+            @if($estudianteMostrar!=null)
+            @if($estudianteMostrar->nombre_estudiante == $atencion->nombre_estudiante)
             <tr>
-                
                 <th scope="row">{{$atencion->id}}</th>
-                
                 <td>{{$atencion->created_at}}</td>
                 <td>{{$atencion->descripcion}}</td>
-                <td><a type="button" class="btn btn-outline-primary">Ver detalles</a></td>
-                
-                
+                <td><a type="button" href="{{ route ('mostrarAtencion',$atencion->id )}}" class="btn btn-outline-primary">Ver detalles</a></td>
             </tr>
+            @endif
+            @endif
             @endforeach
-           
+
         </tbody>
     </table>
 </div>
@@ -116,30 +115,25 @@
         <thead class="thead-primary">
             <tr class="bg-primary text-white">
                 <th scope="col">ID</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Hora</th>
+                <th scope="col">Fecha/Hora</th>
                 <th scope="col">Descripción</th>
+                <th scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
+            @foreach($situaciones as $situacion)
+            @if($estudianteMostrar!=null)
+            @if($estudianteMostrar->nombre_estudiante == $atencion->nombre_estudiante)
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row">{{$atencion->id}}</th>
+                <td>{{$situacion->created_at}}</td>
+                <td>{{$situacion->descripcion}}</td>
+                <td><a type="button" href="{{ route ('mostrarSituacion',$situacion->id )}}" class="btn btn-outline-primary">Ver detalles</a></td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            @endif
+            @endif
+            @endforeach
+
         </tbody>
     </table>
 </div>

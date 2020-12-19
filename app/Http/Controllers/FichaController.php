@@ -7,6 +7,7 @@ use App\Estudiante;
 use App\situacion;
 use App\Atencion;
 
+
 class FichaController extends Controller
 {
     /**
@@ -40,6 +41,23 @@ class FichaController extends Controller
         }
         return view('generarFicha',compact('estudianteMostrar','estudiantes','atenciones','situaciones'));
     }
+
+
+    public function mostrarAtencion($id)
+    {
+        
+        $atenciones=Atencion::find($id)->first();
+        
+        return view('atencion',compact('atenciones'));
+    }
+
+    public function mostrarSituacion($id)
+    {
+        $situaciones=situacion::find($id)->first();
+        return view('situacion',compact('situaciones'));
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
