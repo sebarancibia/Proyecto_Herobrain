@@ -24,10 +24,17 @@
                     @csrf
                     <div class="container">
                         <br><br>
+                        <div class="col-md-12">
                         <h5 class="card-title card col-md-8">Ingrese RUT o Nombre a reportar</h5>
+                        </div>
                         <br>
-                        <div class="col-md-7">
-                            <input id="rut_estudiante" type="text" class="form-control" name="rut_estudiante" placeholder="Por favor busque el estudiante">
+                        <div class="col-md-9">
+                        <select name="rut_estudiante" class="form-control" id="nameid">
+                            <option></option>
+                            @foreach($estudiantes as $d)
+                                <option value="{{$d->rut_estudiante}}">{{$d->rut_estudiante}} | {{$d->nombre_estudiante}} {{$d->apellido_paterno}} {{$d->apellido_materno}}</option>
+                            @endforeach
+                        </select>
                             <br>
                             <button class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="#">Buscar</button>
                         </div>
