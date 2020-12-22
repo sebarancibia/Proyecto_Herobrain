@@ -81,6 +81,19 @@ class atencionController extends Controller
         return view('reportarAtencion',compact('estudiantes','estudianteMostrar','usuarios','asignaturas'));
     }
 
+    public function crearAtencion(Request $request)
+    {
+        $asignaturas = Asignatura::all();
+        $usuarios = User::all();
+        $rut_estudiante = $request->rut_estudiante;
+        $estudianteMostrar=Estudiante::where('rut_estudiante',$rut_estudiante)->first();
+        if($estudianteMostrar == null){
+            $estudianteMostrar=Estudiante::where('nombre_estudiante',$rut_estudiante)->first();
+        }   
+        $estudiantes=Estudiante::all();     
+        return view('reportarAtencion',compact('estudiantes','estudianteMostrar','usuarios','asignaturas'));
+    }
+
     /**
      * Update the specified resource in storage.
      *

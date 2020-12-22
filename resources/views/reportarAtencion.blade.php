@@ -20,7 +20,7 @@
         <br>
         <div class="row">
             <div class="col-md-6">
-                <form class="form-horizontal" action="{{ route ('reportarAtencion.edit', $estudiante->rut_estudiante )}}" method="put">
+                <form class="form-horizontal" action="{{ route ('crearAtencion')}}" method="post">
                     @csrf
                     <div class="container">
                         <br><br>

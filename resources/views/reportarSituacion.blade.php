@@ -20,12 +20,12 @@
         <br>
         <div class="row">
             <div class="col-md-6">
-                <form class="form-horizontal" action="{{ route ('reportarSituacion.edit', $estudiante->rut_estudiante )}}" method="put">
+                <form class="form-horizontal" action="{{ route ('crearSituacion')}}" method="post">
                     @csrf
                     <div class="container">
                         <br><br>
                         <div class="col-md-12">
-                        <h5 class="card-title card col-md-8">Ingrese RUT o Nombre a reportar</h5>
+                        <h5 class="card-title card col-md-8">Ingrese RUT o Nombre del estudiante a reportar situación</h5>
                         </div>
                         <br>
                         <div class="col-md-9">
