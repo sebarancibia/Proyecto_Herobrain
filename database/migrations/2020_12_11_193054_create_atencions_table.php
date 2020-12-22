@@ -18,7 +18,7 @@ class CreateAtencionsTable extends Migration
             $table->timestamps();
             $table->string('rut_estudiante');
             $table->string('nombre_estudiante');
-            $table->string('descripcion');
+            $table->longText('descripcion');
             $table->string('medio');
             $table->string('nombre_asignatura');
             $table->string('nombre_profesor');
