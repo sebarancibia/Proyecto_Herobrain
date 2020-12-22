@@ -92,8 +92,6 @@
                 @if($estudianteMostrar!=null)
                 
                     @if($estudianteMostrar->nombre_estudiante==$atencion->nombre_estudiante)
-                    
-                        <h1>{{$atencion->nombre_estudiante}}</h1>
                         <tr>
                             <th scope="row">{{$atencion->id}}</th>
                             <td>{{$atencion->created_at}}</td>
