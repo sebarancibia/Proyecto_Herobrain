@@ -54,6 +54,8 @@ Route::put('/import', 'AsignaturaController@import')->name('import');
 
 Route::resource('reportarSituacion','situacionController');
 
+Route::post('reportarSituacion2', 'situacionController@reportarSituacion2')->name('reportarSituacion2');
+
 Route::resource('reportarAtencion','atencionController');
 
 Route::resource('fichaController','FichaController');

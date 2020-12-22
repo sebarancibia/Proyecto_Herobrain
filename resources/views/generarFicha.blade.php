@@ -88,16 +88,25 @@
         </thead>
         <tbody>
             @foreach($atenciones as $atencion)
-            @if($estudianteMostrar!=null)
-            @if($estudianteMostrar->nombre_estudiante == $atencion->nombre_estudiante)
-            <tr>
-                <th scope="row">{{$atencion->id}}</th>
-                <td>{{$atencion->created_at}}</td>
-                <td>{{$atencion->descripcion}}</td>
-                <td><a type="button" href="{{ route ('mostrarAtencion',$atencion->id )}}" class="btn btn-outline-primary">Ver detalles</a></td>
-            </tr>
-            @endif
-            @endif
+            
+                @if($estudianteMostrar!=null)
+                
+                    @if($estudianteMostrar->nombre_estudiante==$atencion->nombre_estudiante)
+                    
+                        <h1>{{$atencion->nombre_estudiante}}</h1>
+                        <tr>
+                            <th scope="row">{{$atencion->id}}</th>
+                            <td>{{$atencion->created_at}}</td>
+                            <td>{{$atencion->descripcion}}</td>
+                            <td>
+                            <form action="{{ route ('mostrarAtencion',$atencion->id )}}" method="get">
+                                @csrf    
+                                <button  class="btn btn-outline-primary">Ver detalles</button>
+                            </form>
+                            </td>
+                        </tr>
+                    @endif
+                @endif
             @endforeach
 
         </tbody>
@@ -122,16 +131,21 @@
         </thead>
         <tbody>
             @foreach($situaciones as $situacion)
-            @if($estudianteMostrar!=null)
-            @if($estudianteMostrar->nombre_estudiante == $atencion->nombre_estudiante)
-            <tr>
-                <th scope="row">{{$atencion->id}}</th>
-                <td>{{$situacion->created_at}}</td>
-                <td>{{$situacion->descripcion}}</td>
-                <td><a type="button" href="{{ route ('mostrarSituacion',$situacion->id )}}" class="btn btn-outline-primary">Ver detalles</a></td>
-            </tr>
-            @endif
-            @endif
+                @if($estudianteMostrar!=null)
+                    @if($estudianteMostrar->nombre_estudiante == $situacion->nombre_estudiante)
+                        <tr>
+                            <th scope="row">{{$situacion->id}}</th>
+                            <td>{{$situacion->created_at}}</td>
+                            <td>{{$situacion->descripcion}}</td>
+                            <td>
+                                <form action="{{ route ('mostrarSituacion',$situacion->id )}}" method="get">
+                                @csrf  
+                                <button class="btn btn-outline-primary">Ver detalles</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endif
+                @endif
             @endforeach
 
         </tbody>

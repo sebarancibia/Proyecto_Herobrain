@@ -70,14 +70,14 @@
 
     @if($estudianteMostrar != null)
         
-        <form class="form-horizontal card" action="{{route('reportarSituacion.create')}}" method="put">
+        <form class="form-horizontal card" action="{{route('reportarSituacion2')}}"  method="post">
             <!--ACA FALTA VER LA RUTA, FALTA NOMBRE ASIGNATURA(LISTO), RUT ESTUDIANTE(LISTO), NOMBRE ESTUDIANTE(LISTO), TIPO(LISTO), DESCRIPCION(LISTO)-->
             
             <!---->
-            @method('PACH')
+            
             @csrf
             {{ csrf_field() }}
-            {{method_field('PUT')}}
+            
             <!---->
             
             <input type="hidden" id="rut_estudiante" name="rut_estudiante" value="{{$estudianteMostrar->rut_estudiante}}">
@@ -107,6 +107,7 @@
                 <label for="asignatura" class="col-md-4 col-form-label text-md-right">Asignatura:</label>
                 <div class="col-md-6">
                     <select id="asignatura" name="asignatura" required class="form-control">
+                        <option value="ninguna" selected>Ninguna</option> 
                         @foreach($asignaturas as $asignatura) 
                             <option value="{{$asignatura->nombre_asignatura}}">{{$asignatura->nombre_asignatura}}</option> 
                         @endforeach

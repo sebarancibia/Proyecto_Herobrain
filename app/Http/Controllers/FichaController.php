@@ -46,14 +46,14 @@ class FichaController extends Controller
     public function mostrarAtencion($id)
     {
         
-        $atenciones=Atencion::find($id)->first();
+        $atenciones=Atencion::find($id);
         
         return view('atencion',compact('atenciones'));
     }
 
     public function mostrarSituacion($id)
     {
-        $situaciones=situacion::find($id)->first();
+        $situaciones=situacion::find($id);
         return view('situacion',compact('situaciones'));
     }
 

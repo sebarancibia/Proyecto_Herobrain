@@ -37,6 +37,23 @@ class situacionController extends Controller
         return view('viewMenuPrincipal');
     }
 
+    public function reportarSituacion2(Request $request)
+    {
+        $asignaturas = Asignatura::all();
+        $estudiantes = Estudiante::all();
+        $rut_estudiante = $request->rut_estudiante;
+        $estudianteMostrar=Estudiante::where('rut_estudiante',$rut_estudiante)->first();
+        if($request->tipo=='academica' && $request->asignatura=='ninguna'){
+            
+            return view('reportarSituacion',compact('estudiantes','estudianteMostrar','asignaturas'))->with('error','Debe ingresar una asignatura si la situacion es academica.');
+        }elseif($request->tipo!='academica' && $request->asignatura!='ninguna'){
+            
+            return view('reportarSituacion',compact('estudiantes','estudianteMostrar','asignaturas'))->with('error','Debe ingresar una asignatura si la situacion es academica.');
+        }
+        $this->create($request);         
+        return view('viewMenuPrincipal');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

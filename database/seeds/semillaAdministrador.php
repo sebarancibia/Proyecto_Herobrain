@@ -16,7 +16,7 @@ class semillaAdministrador extends Seeder
             'rol' => 'administrador',
             'activo' => true,
             'email' => 'admin@email.com',
-            'password' => bcrypt('1'),
+            'password' => bcrypt('12345678'),
             'carrera' =>'ninguna',
             
             
@@ -26,7 +26,7 @@ class semillaAdministrador extends Seeder
             'rol' => 'profesor',
             'activo' => true,
             'email' => 'p@email.com',
-            'password' => bcrypt('1'),
+            'password' => bcrypt('12345678'),
             'carrera' =>'ninguna',
             
             
@@ -36,7 +36,7 @@ class semillaAdministrador extends Seeder
             'rol' => 'jefeCarrera',
             'activo' => true,
             'email' => 'j@email.com',
-            'password' => bcrypt('1'),
+            'password' => bcrypt('12345678'),
             'carrera' =>'ninguna',
             
             
@@ -46,7 +46,7 @@ class semillaAdministrador extends Seeder
             'rol' => 'secretaria',
             'activo' => true,
             'email' => 's@email.com',
-            'password' => bcrypt('1'),
+            'password' => bcrypt('12345678'),
             'carrera' =>'ninguna',
             
             

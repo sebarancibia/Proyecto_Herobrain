@@ -108,6 +108,7 @@
                 <label for="asignatura" class="col-md-4 col-form-label text-md-right">Asignatura:</label>
                 <div class="col-md-6">
                     <select id="asignatura" name="asignatura" required class="form-control">
+                    <option value="ninguna" selected>Ninguna</option> 
                         @foreach($asignaturas as $asignatura) 
                             <option value="{{$asignatura->nombre_asignatura}}">{{$asignatura->nombre_asignatura}}</option> 
                         @endforeach
@@ -119,6 +120,7 @@
                 <label for="profesor" class="col-md-4 col-form-label text-md-right">Profesor:</label>
                 <div class="col-md-6">
                     <select id="profesor" name="profesor" class="form-control">
+                    <option value="ninguno" selected>Ninguno</option> 
                         @foreach($usuarios as $usuario)
                             @if($usuario->rol=='profesor' or $usuario->rol=='jefeCarreraProfesor')
                                 <option value="{{$usuario->name}}">{{$usuario->name}}</option> 
