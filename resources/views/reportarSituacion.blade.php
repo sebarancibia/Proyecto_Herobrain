@@ -88,7 +88,7 @@
                     <thead class="thead">
                         <tr class="bg-primary text-white">
                             <h5 class="card-title card col-md-2">Descripción</h5>
-                            <textarea class="form-control" name="descripcion" placeholder="Ingrese aquí la descripción"></textarea>
+                            <textarea class="form-control" name="descripcion" maxlength="50" required placeholder="Ingrese aquí la descripción"></textarea>
                         </tr>
                         </theard>
                 </table>
