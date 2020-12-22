@@ -3,7 +3,10 @@
 @section('content')
 
 <div class="container">
-    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="{{ route ('menuAdmin.show', auth::user()->id )}}">Regresar vista tabla</a>
+<div class="btn-group-vertical">
+    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="http://127.0.0.1:8000/showEditEstudiante">Regresar</a>
+    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="http://127.0.0.1:8000/viewMenuPrincipal">Regresar menú principal</a>
+</div>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

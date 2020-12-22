@@ -30,7 +30,7 @@
             </div>
             <br>
             <div class="col-md-9">
-                <button class=" btn btn-outline-primary " style="margin-bottom:20px;float:right" href="#">Cambiar</button>
+                <button class=" btn btn-outline-primary " style="margin-bottom:20px;float:right" href="#">Buscar</button>
             </div>
         </div>
     </form>

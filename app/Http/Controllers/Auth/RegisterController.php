@@ -65,14 +65,31 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'rol' => $data['rol'],
-            'activo' =>true,
-
-        ]);
+        //dd($data['carrera']!='ninguna');
+        if($data['rol']!='jefeCarrera' && $data['rol']!='jefeCarreraProfesor'){
+            if($data['carrera']!='ninguna'){
+                //dd("señor su archivo esta malo, debe usar el campo APELLIDO PATERNO como encabezado11111");
+                return view('auth.register')->with('error', 'No puede tener una carrera si no tiene el rol de jefe de carrera.');
+            }  
+        
+        }
+        elseif($data['carrera']=='ninguna'){
+            
+            //dd("señor su archivo esta malo, debe usar el campo APELLIDO PATERNO como encabezado22222222222222");
+            return view('auth.register')->with('error', 'Un jefe de carrera debe tener una carrera relacionada.');
+            
+        }else{
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'rol' => $data['rol'],
+                'activo' =>true,
+                'carrera' => $data['carrera'],
+    
+            ]);
+        }
+        
     }
 
     /**

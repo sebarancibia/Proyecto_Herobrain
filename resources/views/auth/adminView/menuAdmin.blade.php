@@ -18,7 +18,7 @@
         </div>
     </div>
 </div>
-
+@if(auth::user()->rol == 'administrador')
 <div class="container">
     <div align='center'>
         <div class="col-5">
@@ -31,5 +31,16 @@
         </div>
     </div>
 </div>
-
+@else
+<br>
+<div class="container">
+    <div align='center'>
+        <div class="col-5">
+            <div  align='center'>
+                <h5 class="card-title card col-md-8">No cuentas con el rol de administrador</h5>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 @endsection

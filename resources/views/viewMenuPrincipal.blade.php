@@ -17,7 +17,7 @@
         </div>
     </div>
 </div>
-
+@if(auth::user()->rol!='administrador')
 <div class="container">
     <div align='center'>
         <div class="col-5">
@@ -42,8 +42,6 @@
 
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('showEditEstudiante') }}">Editar Estudiante</a>
 
-                        <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('reportarAtencion.show', auth::user() )}}">Registrar Atención</a>
-
                     @endif
                     @if(auth::user()->rol == 'profesor')
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('reportarSituacion.show', auth::user() )}}">Reportar Situación</a>
@@ -66,4 +64,15 @@
         </div>
     </div>
 </div>
+@else
+<div class="container">
+    <div align='center'>
+        <div class="col-5">
+            <div  align='center'>
+                <h5 class="card-title card col-md-8">No cuentas con el rol adecuado para estas acciones</h5>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 @endsection
