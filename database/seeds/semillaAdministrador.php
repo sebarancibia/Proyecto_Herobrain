@@ -17,6 +17,7 @@ class semillaAdministrador extends Seeder
             'activo' => true,
             'email' => 'admin@email.com',
             'password' => bcrypt('1'),
+            'carrera' =>'ninguna',
             
             
         ]);
@@ -26,6 +27,7 @@ class semillaAdministrador extends Seeder
             'activo' => true,
             'email' => 'p@email.com',
             'password' => bcrypt('1'),
+            'carrera' =>'ninguna',
             
             
         ]);
@@ -35,6 +37,7 @@ class semillaAdministrador extends Seeder
             'activo' => true,
             'email' => 'j@email.com',
             'password' => bcrypt('1'),
+            'carrera' =>'ninguna',
             
             
         ]);
@@ -44,6 +47,7 @@ class semillaAdministrador extends Seeder
             'activo' => true,
             'email' => 's@email.com',
             'password' => bcrypt('1'),
+            'carrera' =>'ninguna',
             
             
         ]);
