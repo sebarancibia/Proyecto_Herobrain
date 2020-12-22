@@ -16,7 +16,7 @@ class CreateSituacionsTable extends Migration
         Schema::create('situacions', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('descripcion');
+            $table->longText('descripcion');
             $table->string('tipo');
             $table->string('rut_estudiante');
             $table->string('nombre_estudiante');
