@@ -29,7 +29,7 @@
                         </div>
                         <br>
                         <div class="col-md-9">
-                        <select name="rut_estudiante" class="form-control" id="nameid">
+                        <select name="rut_estudiante" required class="form-control" id="nameid">
                             <option></option>
                             @foreach($estudiantes as $d)
                                 <option value="{{$d->rut_estudiante}}">{{$d->rut_estudiante}} | {{$d->nombre_estudiante}} {{$d->apellido_paterno}} {{$d->apellido_materno}}</option>
@@ -106,7 +106,7 @@
             <div class="form-group row">
                 <label for="asignatura" class="col-md-4 col-form-label text-md-right">Asignatura:</label>
                 <div class="col-md-6">
-                    <select id="asignatura" name="asignatura" class="form-control">
+                    <select id="asignatura" name="asignatura" required class="form-control">
                         @foreach($asignaturas as $asignatura) 
                             <option value="{{$asignatura->nombre_asignatura}}">{{$asignatura->nombre_asignatura}}</option> 
                         @endforeach

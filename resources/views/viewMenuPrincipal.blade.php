@@ -55,9 +55,10 @@
 
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('reportarAtencion.show', auth::user() )}}">Registrar Atención</a>
 
+                        <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('reportarSituacion.show', auth::user() )}}">Reportar Situación</a>
+                        
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('fichaController.index')}}">Ver fichas de estudiantes</a>
 
-                        <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('reportarSituacion.show', auth::user() )}}">Reportar Situación</a>
                     @endif
                 </div>
             </div>
