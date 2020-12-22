@@ -79,6 +79,17 @@ class situacionController extends Controller
         $estudiantes=Estudiante::all();     
         return view('reportarSituacion',compact('estudiantes','estudianteMostrar','asignaturas'));
     }
+    public function crearSituacion(Request $request)
+    {
+        $asignaturas = Asignatura::all();
+        $rut_estudiante = $request->rut_estudiante;
+        $estudianteMostrar=Estudiante::where('rut_estudiante',$rut_estudiante)->first();
+        if($estudianteMostrar == null){
+            $estudianteMostrar=Estudiante::where('nombre_estudiante',$rut_estudiante)->first();
+        }   
+        $estudiantes=Estudiante::all();     
+        return view('reportarSituacion',compact('estudiantes','estudianteMostrar','asignaturas'));
+    }
 
     /**
      * Update the specified resource in storage.

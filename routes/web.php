@@ -64,3 +64,7 @@ Route::post('buscarEstudianteRut', 'FichaController@buscarEstudianteRut')->name(
 Route::get('/situacion/{id}', 'FichaController@mostrarSituacion')->name('mostrarSituacion');
 
 Route::get('/Atencion/{id}', 'FichaController@mostrarAtencion')->name('mostrarAtencion');
+
+Route::post('crearSituacion', 'situacionController@crearSituacion')->name('crearSituacion');
+
+Route::post('crearAtencion', 'atencionController@crearAtencion')->name('crearAtencion');
