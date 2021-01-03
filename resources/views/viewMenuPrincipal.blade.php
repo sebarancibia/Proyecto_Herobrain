@@ -34,6 +34,8 @@
 
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('fichaController.index')}}">Ver fichas de estudiantes</a>
 
+                        <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('indexAsignatura')}}">Ver ficha de asignaturas</a>
+
                     @endif
                     @if(auth::user()->rol == 'secretaria')
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="import-form">Cargar Estudiantes</a>
@@ -59,6 +61,7 @@
                         
                         <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('fichaController.index')}}">Ver fichas de estudiantes</a>
 
+                        <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:right" href="{{ route ('indexAsignatura')}}">Ver ficha de asignaturas</a>
                     @endif
                 </div>
             </div>

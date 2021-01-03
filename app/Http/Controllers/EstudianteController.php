@@ -30,23 +30,23 @@ class EstudianteController extends Controller
         }
     
         if(strtoupper($headings[0][0][1]) != 'APELLIDO_PATERNO'){
-            dd("señor su archivo esta malo, debe usar el campo APELLIDO PATERNO como encabezado");
+            return back()->with("señor su archivo esta malo, debe usar el campo APELLIDO PATERNO como encabezado");
         }
 
         if(strtoupper($headings[0][0][2]) != 'APELLIDO_MATERNO'){
-            dd("señor su archivo esta malo, debe usar el campo APELLIDO MATERNO como encabezado");
+            return back()->with("señor su archivo esta malo, debe usar el campo APELLIDO MATERNO como encabezado");
         }
 
         if(strtoupper($headings[0][0][3]) != 'NOMBRE'){
-            dd("señor su archivo esta malo, debe usar el campo APELLIDO MATERNO como encabezado");
+            return back()->with("señor su archivo esta malo, debe usar el campo APELLIDO MATERNO como encabezado");
         }
 
         if(strtoupper($headings[0][0][4]) != 'CARRERA'){
-            dd("señor su archivo esta malo, debe usar el campo APELLIDO MATERNO como encabezado");
+            return back()->with("señor su archivo esta malo, debe usar el campo APELLIDO MATERNO como encabezado");
         }
         
         if(strtoupper($headings[0][0][5]) != 'CORREO'){
-            dd("señor su archivo esta malo, debe usar el campo APELLIDO MATERNO como encabezado");
+            return back()->with("señor su archivo esta malo, debe usar el campo APELLIDO MATERNO como encabezado");
         }
 
         $excel = Excel::import(new EstudianteImport, $request->file2);

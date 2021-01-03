@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Estudiante;
 use App\situacion;
 use App\Atencion;
-
+use App\Asignatura;
 
 class FichaController extends Controller
 {
@@ -58,6 +58,34 @@ class FichaController extends Controller
     }
 
 
+
+
+    public function indexAsignatura(){
+        $asignaturas = Asignatura::all();
+        $asignaturaMostrar = null;
+        $atenciones=null;
+        return view('consultaAsignatura', compact('asignaturas','asignaturaMostrar','atenciones'));
+    }
+
+    public function buscarAsignatura(Request $request){
+        
+        $asignaturas = Asignatura::all();
+        $atenciones=Atencion::all();
+        $buscarAsignatura = $request->codigo_asignatura; 
+        $asignaturaMostrar=Asignatura::where('codigo_asignatura',$buscarAsignatura)->first();
+        if(Asignatura::where('codigo_asignatura',$buscarAsignatura)->first() == null) {
+            return back()->with('error', 'La asignatura no existe');
+        }
+        return view ('consultaAsignatura', compact('asignaturas','asignaturaMostrar','atenciones'));
+    }
+
+    public function mostrarAtencionAsignatura($id)
+    {
+        
+        $atenciones=Atencion::find($id);
+        
+        return view('atencionAsignatura',compact('atenciones'));
+    }
     /**
      * Show the form for creating a new resource.
      *

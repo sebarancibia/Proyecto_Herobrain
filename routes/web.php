@@ -70,3 +70,9 @@ Route::get('/Atencion/{id}', 'FichaController@mostrarAtencion')->name('mostrarAt
 Route::post('crearSituacion', 'situacionController@crearSituacion')->name('crearSituacion');
 
 Route::post('crearAtencion', 'atencionController@crearAtencion')->name('crearAtencion');
+
+Route::get('indexAsignatura', 'FichaController@indexAsignatura')->name('indexAsignatura');
+
+Route::post('buscarAsignatura', 'FichaController@buscarAsignatura')->name('buscarAsignatura');
+
+Route::get('/Atencion/{id}', 'FichaController@mostrarAtencionAsignatura')->name('mostrarAtencionAsignatura');

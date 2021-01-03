@@ -46,10 +46,6 @@
         });
 </script>
 
-
-<!-- validar que si o si entra un dato, validar en caso de que no se encuentre-->
-
-
 <!-- CAMBIAR VISUAL-->
 <div class="panel-body">
     <div class="card-body">
