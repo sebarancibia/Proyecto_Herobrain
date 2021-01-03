@@ -96,12 +96,12 @@ class RegisterController extends Controller
 
             //dd("señor su archivo esta malo, debe usar el campo APELLIDO PATERNO como encabezado22222222222222");
             return back()->with('error', 'Un jefe de carrera debe tener una carrera relacionada.');
-        } else {
+        } 
             $this->validator($request->all())->validate();
             event(new Registered($user = $this->create($request->all())));
             // $this->guard()->login($user);
             return $this->registered($request, $user)
                 ?: redirect($this->redirectPath());
-        }
+        
     }
 }

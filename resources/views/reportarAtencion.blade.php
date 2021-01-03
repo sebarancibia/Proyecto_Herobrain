@@ -42,6 +42,8 @@
                     </div>
                 </form>
             </div>
+
+            <!--AQUI SE DESPLIEGA EL CUADRO DONDE SE ENCUENTRAL LA INFORMACION DEL ESTUDIANTE SELECCIONADO -->
             <div class="col-md-6">
                 @if($estudianteMostrar==null)
                 <div class="card-body card ">
@@ -122,7 +124,7 @@
                     <select id="profesor" name="profesor" class="form-control">
                     <option value="ninguno" selected>Ninguno</option> 
                         @foreach($usuarios as $usuario)
-                            @if($usuario->rol=='profesor' or $usuario->rol=='jefeCarreraProfesor')
+                            @if(($usuario->rol=='profesor' or $usuario->rol=='jefeCarreraProfesor') and $usuario->activo=='1')
                                 <option value="{{$usuario->name}}">{{$usuario->name}}</option> 
                             @endif
                         @endforeach

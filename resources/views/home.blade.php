@@ -13,12 +13,17 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    @if(auth::user()->rol=='administrador')
-                        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://127.0.0.1:8000/menuAdmin">
+                    @if(!auth::user()->activo)
+                    <div class="card">
+                        <h1>El usuario no se encuentra activo</h1>
+                    </div>
                     @else
-                        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://127.0.0.1:8000/viewMenuPrincipal">
+                        @if(auth::user()->rol=='administrador')
+                            <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://127.0.0.1:8000/menuAdmin">
+                        @else
+                            <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://127.0.0.1:8000/viewMenuPrincipal">
+                        @endif
                     @endif
-                    
                 </div>
             </div>
         </div>
