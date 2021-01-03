@@ -70,6 +70,7 @@
 </div>
 <br>
 
+<!--AQUI SE DESPLIEGAN LAS FICHAS DE ATENCION-->
 <div class="container card">
     <div class="card-header-pills">
         <h1>Registro de atenciones</h1>
@@ -91,7 +92,7 @@
                 @foreach($atenciones as $atencion)
                 
                     @if($estudianteMostrar->nombre_estudiante==$atencion->nombre_estudiante)
-                        
+                       <tr>
                             <th scope="row">{{$atencion->id}}</th>
                             <td>{{$atencion->created_at}}</td>
                             <td>{{$atencion->descripcion}}</td>
@@ -101,7 +102,7 @@
                                     <button class="btn btn-outline-primary">Ver detalles</button>
                                 </form>
                             </td>
-                        
+                        </tr> 
                     @endif
 
                 @endforeach
@@ -110,6 +111,8 @@
     </table>
 </div>
 <br>
+
+<!--AQUI SE DESPLIEGAN LAS FICHAS DE SITUACION-->
 <div class="container card">
     <div class="card-header-pills">
         <h1>Registro de situaciones</h1>
