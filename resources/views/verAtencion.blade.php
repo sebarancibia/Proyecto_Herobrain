@@ -9,7 +9,7 @@
         <div class="col-5">
             <div class="card-header-pills card">
                 <br>
-                <h1>Detalle de Atención2</h1>
+                <h1>Detalle de Atención</h1>
                 <br>
             </div>
             <br>

@@ -97,9 +97,10 @@
                             <td>{{$atencion->created_at}}</td>
                             <td>{{$atencion->descripcion}}</td>
                             <td>
-                                <form action="{{ route ('mostrarAtencion',$atencion->id )}}" method="get">
-                                    @csrf
-                                    <button class="btn btn-outline-primary">Ver detalles</button>
+                                
+                                <form action="{{route('mostrarAtencion',$atencion->id)}}" method="get">
+                                @csrf
+                                <button class="btn btn-outline-primary">Ver detalles</button>
                                 </form>
                             </td>
                         </tr> 
