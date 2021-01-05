@@ -37,6 +37,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="rut" class="col-md-4 col-form-label text-md-right">{{ __('Rut') }}</label>
+
+                            <div class="col-md-6">
+                                <input onkeypress="return /[0-9a-z]/i.test(event.key)" id="rut" type="int" class="form-control @error('name') is-invalid @enderror" name="rut" value="{{ old('name') }}" required autocomplete="rut" autofocus>
+                                @error('name')
+
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="rol" class="col-md-4 col-form-label text-md-right">Rol del usuario:</label>
                             <div class="col-md-6">
                                 <select id="rol" name="rol" class="form-control">
