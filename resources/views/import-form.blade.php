@@ -8,7 +8,7 @@
     <div align='center'>
         <div class="col-5">
                 <div class="card-header-pills">
-                    <h1>Cargar Estudiates</h1>
+                    <h1>Cargar Estudiantes</h1>
                 </div>
         </div>
     </div>
