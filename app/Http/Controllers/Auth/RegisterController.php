@@ -73,6 +73,7 @@ class RegisterController extends Controller
             'rol' => $data['rol'],
             'activo' => true,
             'carrera' => $data['carrera'],
+            'rut' =>$data['rut'],
 
         ]);
     }

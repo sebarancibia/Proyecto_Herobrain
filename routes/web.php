@@ -71,8 +71,13 @@ Route::post('crearSituacion', 'situacionController@crearSituacion')->name('crear
 
 Route::post('crearAtencion', 'atencionController@crearAtencion')->name('crearAtencion');
 
-Route::get('indexAsignatura', 'FichaController@indexAsignatura')->name('indexAsignatura');
 
-Route::post('buscarAsignatura', 'FichaController@buscarAsignatura')->name('buscarAsignatura');
+//rutas para ver fichas asignaturas, REP-003
+Route::get('indexAsignatura','FichaController@indexAsignatura')->name('indexAsignatura');
+Route::post('buscarAsignatura','FichaController@buscarAsignatura')->name('buscarAsignatura');
+Route::get('/Atencion2/{id}','FichaController@mostrarAtencionAsignatura')->name('mostrarAtencionAsignatura');
 
-Route::get('/Atencion/{id}', 'FichaController@mostrarAtencionAsignatura')->name('mostrarAtencionAsignatura');
+//rutas ver fichas atenciones, REP-002
+Route::get('indexAtencion','FichaController@indexAtencion')->name('indexAtencion');
+Route::post('buscarProfesor','FichaController@buscarProfesor')->name('buscarProfesor');
+Route::get('/Atencion3/{id}','FichaController@atencionProfesor')->name('atencionProfesor');

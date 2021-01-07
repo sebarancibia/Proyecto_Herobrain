@@ -7,6 +7,7 @@ use App\Estudiante;
 use App\situacion;
 use App\Atencion;
 use App\Asignatura;
+use App\User;
 
 class FichaController extends Controller
 {
@@ -42,12 +43,9 @@ class FichaController extends Controller
         return view('generarFicha',compact('estudianteMostrar','estudiantes','atenciones','situaciones'));
     }
 
-
     public function mostrarAtencion($id)
     {
-        
         $atenciones=Atencion::find($id);
-        
         return view('atencion',compact('atenciones'));
     }
 
@@ -59,7 +57,7 @@ class FichaController extends Controller
 
 
 
-
+//metodos para REP-003, boton 'ver ficha de asignaturas'
     public function indexAsignatura(){
         $asignaturas = Asignatura::all();
         $asignaturaMostrar = null;
@@ -81,11 +79,42 @@ class FichaController extends Controller
 
     public function mostrarAtencionAsignatura($id)
     {
-        
         $atenciones=Atencion::find($id);
-        
         return view('atencionAsignatura',compact('atenciones'));
     }
+
+//////////////////
+
+//Metodos para REP-002, boton 'ver ficha de atenciones'
+    public function indexAtencion(){
+        $profesores = User::all();
+        $profesorMostrar = null;
+        $atenciones=null;
+        return view('registroAtencion', compact('profesores','profesorMostrar','atenciones'));
+    }
+
+    public function buscarProfesor(Request $request){
+        $profesores = User::all();
+        $atenciones=Atencion::all();
+        //dd($atenciones);
+        $buscarAtencion=$request->rut;
+        $profesorMostrar=User::where('rut',$buscarAtencion)->first();
+        if(User::where('rut',$buscarAtencion)->first() == null) {
+            return back()->with('error', 'El usuario no existe');
+        }
+        return view ('registroAtencion', compact('profesores','profesorMostrar','atenciones'));
+    }
+
+    public function atencionProfesor($id)
+    {
+        $atenciones=Atencion::find($id);
+        return view('verAtencion',compact('atenciones'));
+    }
+////////////////
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *
