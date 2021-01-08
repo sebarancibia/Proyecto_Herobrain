@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Excel;
 use App\Estudiante;
 use App\Http\Requests\ExcelStoreRequest;
+use Maatwebsite\Excel\HeadingRowImport;
 
 class EstudianteController extends Controller
 {
@@ -23,7 +24,32 @@ class EstudianteController extends Controller
 
     // este metodo ejecuta la importacion del archivo estudiantes.
     public function import2(ExcelStoreRequest $request){
-        Excel::import(new EstudianteImport, $request->file2);
+        $headings = (new HeadingRowImport)->toArray($request->file2);
+        if(strtoupper($headings[0][0][0]) != 'RUT'){
+            return back()->with('error', 'El encabezado RUT esta mal inscrito o no existe');
+        }
+    
+        if(strtoupper($headings[0][0][1]) != 'APELLIDO_PATERNO'){
+            return back()->with("señor su archivo esta malo, debe usar el campo APELLIDO PATERNO como encabezado");
+        }
+
+        if(strtoupper($headings[0][0][2]) != 'APELLIDO_MATERNO'){
+            return back()->with("señor su archivo esta malo, debe usar el campo APELLIDO MATERNO como encabezado");
+        }
+
+        if(strtoupper($headings[0][0][3]) != 'NOMBRE'){
+            return back()->with("señor su archivo esta malo, debe usar el campo APELLIDO MATERNO como encabezado");
+        }
+
+        if(strtoupper($headings[0][0][4]) != 'CARRERA'){
+            return back()->with("señor su archivo esta malo, debe usar el campo APELLIDO MATERNO como encabezado");
+        }
+        
+        if(strtoupper($headings[0][0][5]) != 'CORREO'){
+            return back()->with("señor su archivo esta malo, debe usar el campo APELLIDO MATERNO como encabezado");
+        }
+
+        $excel = Excel::import(new EstudianteImport, $request->file2);
         return redirect('/get-all-estudiante');
     }
 }

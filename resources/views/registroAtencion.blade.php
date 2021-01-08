@@ -1,0 +1,109 @@
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="http://127.0.0.1:8000/viewMenuPrincipal">Regresar menú principal</a>
+    <div align='center'>
+        <div class="col-5">
+            <div class="card-header-pills card">
+                <br>
+                <h1>Ficha de Atención</h1>
+                <br>
+            </div>
+            <br>
+        </div>
+
+    </div>
+
+    <form class="form-horizontal" action="{{ route ('buscarProfesor' )}}" method="post">
+        @csrf
+        <div class="container card">
+            <br>
+            <div class="row justify-content-md-center">
+                <div class="col-md-6">
+                    <h5 for="rut" class="card-title">Ingrese rut o nombre del profesor</h5>
+                    <select name="rut" class="form-control" id="nameid">
+                        <option></option>
+                        @foreach($profesores as $d)
+                            @if(($d->rol=='profesor' || $d->rol=='jefeCarreraProfesor') and $d->activo=='1')
+                                <option value="{{$d->rut}}">{{$d->rut}} | {{$d->name}}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-9">
+                <button class=" btn btn-outline-primary " style="margin-bottom:20px;float:right" href="#">Buscar</button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <div class="container  card">
+        <div class="container" align='center'>
+            <table class="col-md-12 ">
+
+                <div class="card-header-pills">
+                    <h1>Información del profesor</h1>
+                    <br>
+
+                </div>
+                @if($profesorMostrar==null)
+
+                <label class="col-md-4 control-label">Nombre:</label>
+                <label class="col-md-4 control-label">Rut:</label>
+
+                @else
+
+                <label class="col-md-4 control-label">Nombre: {{$profesorMostrar->name}}</label>
+                <label class="col-md-4 control-label">Rut: {{$profesorMostrar->rut}}</label>
+
+                @endif
+
+
+                <br>
+            </table>
+        </div>
+    </div>
+
+    <div class="container card">
+    <div class="card-header-pills">
+        <h1>Registro de atenciones</h1>
+        <br>
+
+    </div>
+
+    <table class="table col-md-10" align='center'>
+        <thead class="thead-primary">
+            <tr class="bg-primary text-white">
+                <th scope="col">ID</th>
+                <th scope="col">Fecha/Hora</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if($atenciones!=null)
+                @foreach($atenciones as $atencion)
+                    @if($atencion->nombre_profesor == $profesorMostrar->name)
+                       <tr>
+                            <th scope="row">{{$atencion->id}}</th>
+                            <td>{{$atencion->created_at}}</td>
+                            <td>{{$atencion->descripcion}}</td>
+                            <td>
+                                <form action="{{route ('atencionProfesor', $atencion->id)}}" method="get">
+                                    @csrf
+                                    <button class="btn btn-outline-primary">Ver detalles</button>
+                                </form>
+                            </td>
+                        </tr> 
+                    @endif
+
+                @endforeach
+            @endif
+        </tbody>
+    </table>
+</div>
+
+</div>
+
+@endsection

@@ -14,8 +14,7 @@ class menuAdminController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('auth.adminView.menuAdmin',compact('users'));
+        return view('auth.adminView.menuAdmin');
     }
 
     /**
@@ -47,7 +46,8 @@ class menuAdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $users = User::all();
+        return view('auth.adminView.mostrarUsuarios',compact('users'));
     }
 
     /**
@@ -70,22 +70,25 @@ class menuAdminController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request,$id)
-    {
+ 
+    public function update( Request $request, $id ) {
         $users=User::findOrFail($id);
+      $this->validate(
+           $request,
+            [
+                'email'                => "required|email|unique:users,email,{$id}",
+                $users->email=$request->email,
+            ]
+        );
         $users->name =$request->name;
-        $users->email =$request->email;
-        $users->password =bcrypt($request->password);
         $users->rol =$request->rol;
-        $users->activo=true;
         $users->update();
-        
         $users = User::all();
         return view('auth.adminView.menuAdmin',compact('users'));
     }
 
     /**
-     * Recibe un ID, busca al usuario con ese id y cambia su esstado activo a false
+     * Recibe un ID, busca al usuario con ese id y cambia su estado activo a false
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -96,6 +99,6 @@ class menuAdminController extends Controller
         $users->activo=false;
         $users->update();
         
-        return back();
+        return back()->with('message','Usuario deshabilitado.');
     }
 }

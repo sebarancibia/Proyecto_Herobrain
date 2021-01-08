@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class semillaAdministrador extends Seeder
 {
@@ -17,9 +16,44 @@ class semillaAdministrador extends Seeder
             'rol' => 'administrador',
             'activo' => true,
             'email' => 'admin@email.com',
-            'password' => bcrypt('1'),
+            'password' => bcrypt('12345678'),
+            'carrera' =>'ninguna',
+            'rut' =>'12123123-1'
+            
             
         ]);
-        
+        $user=App\User::create([
+            'name' => 'profe',
+            'rol' => 'profesor',
+            'activo' => true,
+            'email' => 'p@email.com',
+            'password' => bcrypt('12345678'),
+            'carrera' =>'ninguna',
+            'rut' =>'13123123-4'
+            
+            
+        ]);
+        $user=App\User::create([
+            'name' => 'jefe',
+            'rol' => 'jefeCarrera',
+            'activo' => true,
+            'email' => 'j@email.com',
+            'password' => bcrypt('12345678'),
+            'carrera' =>'ninguna',
+            'rut' =>'14123123-1'
+            
+            
+        ]);
+        $user=App\User::create([
+            'name' => 'secretaria',
+            'rol' => 'secretaria',
+            'activo' => true,
+            'email' => 's@email.com',
+            'password' => bcrypt('12345678'),
+            'carrera' =>'ninguna',
+            'rut' =>'15123123-1'
+            
+            
+        ]);
     }
 }

@@ -31,7 +31,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-    
+
     /**
      * Create a new controller instance.
      *
@@ -65,28 +65,44 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'rol' => $data['rol'],
-            'activo' =>true,
+            'activo' => true,
+            'carrera' => $data['carrera'],
+            'rut' =>$data['rut'],
 
         ]);
     }
 
     /**
- * 
- *
- * @param  \Illuminate\Http\Request  $request
- * @return \Illuminate\Http\Response
- */
-public function register(Request $request)
-{
-    $this->validator($request->all())->validate();
-    event(new Registered($user = $this->create($request->all())));
-    // $this->guard()->login($user);
-    return $this->registered($request, $user)
-                        ?: redirect($this->redirectPath());
- }
+     * 
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+
+
+        if ($request->rol != 'jefeCarrera' && $request->rol != 'jefeCarreraProfesor') {
+            if ($request->carrera != 'ninguna') {
+                //dd("señor su archivo esta malo, debe usar el campo APELLIDO PATERNO como encabezado11111");
+                return back()->with('error', 'El usuario no puede tener una carrera si no tiene el rol de jefe de carrera.');
+            }
+        } elseif ($request->carrera == 'ninguna') {
+
+            //dd("señor su archivo esta malo, debe usar el campo APELLIDO PATERNO como encabezado22222222222222");
+            return back()->with('error', 'Un jefe de carrera debe tener una carrera relacionada.');
+        } 
+            $this->validator($request->all())->validate();
+            event(new Registered($user = $this->create($request->all())));
+            // $this->guard()->login($user);
+            return $this->registered($request, $user)
+                ?: redirect($this->redirectPath());
+        
+    }
 }
