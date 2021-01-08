@@ -99,6 +99,6 @@ class menuAdminController extends Controller
         $users->activo=false;
         $users->update();
         
-        return back();
+        return back()->with('message','Usuario deshabilitado.');
     }
 }

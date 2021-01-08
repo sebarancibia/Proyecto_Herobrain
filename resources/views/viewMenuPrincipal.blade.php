@@ -2,6 +2,13 @@
 
 @section('content')
 
+@if(session()->has('situacion'))
+    <div class="alert alert-success">
+        {{ session()->get('situacion') }}
+    </div>
+@endif
+
+
 <div class="container">
     <div align='center'>
         <div class="col-5">

@@ -35,7 +35,7 @@ class atencionController extends Controller
             'nombre_asignatura' => $request->asignatura,
             'nombre_profesor' => $request->profesor            
         ]);
-        return view('viewMenuPrincipal');
+        return redirect()->route('viewMenuPrincipal.index')->with('situacion','Atención creada correctamente');
     }
 
     /**
