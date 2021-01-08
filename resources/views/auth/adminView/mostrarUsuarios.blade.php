@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
 
 <div class="container">
     <div align='center'>
@@ -64,7 +69,9 @@
                         <form method="post" action="{{ route ('menuAdmin.destroy',$user->id) }}">
                             @method('delete')
                             @csrf
-                            <button class="btn btn-danger btn-sm"> Eliminar Usuario</button>
+                            
+                            <button class="btn btn-danger btn-sm" onclick="return confirm('estas seguro')"> Eliminar Usuario</button>
+
                         </form>
                     </td>
                 </tr>

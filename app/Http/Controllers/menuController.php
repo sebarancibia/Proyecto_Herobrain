@@ -97,7 +97,7 @@ class menuController extends Controller
         $estudiantes->correo_estudiante=$request->email;
         $estudiantes->update();
         $estudiantes = Estudiante::all();
-        return view('viewMenuPrincipal');
+        return redirect()->route('showEditEstudiante')->with('message','Estudiante editado correctamente');
     }
 
     /**

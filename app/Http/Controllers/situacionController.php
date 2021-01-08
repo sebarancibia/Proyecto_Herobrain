@@ -34,7 +34,8 @@ class situacionController extends Controller
             'nombre_estudiante' => $request->nombre_estudiante,
             'nombre_asignatura' => $request->asignatura,            
         ]);
-        return view('viewMenuPrincipal');
+
+        return redirect()->route('viewMenuPrincipal.index')->with('situacion','Situación creada correctamente');
     }
 
     public function reportarSituacion2(Request $request)
@@ -45,10 +46,11 @@ class situacionController extends Controller
         $estudianteMostrar=Estudiante::where('rut_estudiante',$rut_estudiante)->first();
         if($request->tipo=='academica' && $request->asignatura=='ninguna'){
             
-            return view('reportarSituacion',compact('estudiantes','estudianteMostrar','asignaturas'))->with('error','Debe ingresar una asignatura si la situacion es academica.');
+            return view('reportarSituacion',compact('estudiantes','estudianteMostrar','asignaturas'))->with('successMsg','Debe ingresar una asignatura si la situacion es académica.');
         }elseif($request->tipo!='academica' && $request->asignatura!='ninguna'){
             
-            return view('reportarSituacion',compact('estudiantes','estudianteMostrar','asignaturas'))->with('error','Debe ingresar una asignatura si la situacion es academica.');
+            return view('reportarSituacion',compact('estudiantes','estudianteMostrar','asignaturas'))->with('successMsg','No debe ingresar una asignatura si el tipo de situación es personal.');
+            //return redirect()->route('showEditEstudiante')->with('message','Estudiante editado correctamente');
         }
         $this->create($request);         
         return view('viewMenuPrincipal');

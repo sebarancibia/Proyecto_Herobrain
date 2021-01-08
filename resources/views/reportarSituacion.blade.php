@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if(!empty($successMsg))
+  <div class="alert alert-danger"> {{ $successMsg }}</div>
+@endif
+
+
 <div class="container">
     <a type="button" class="btn btn-outline-primary" style="margin-bottom:20px;float:left" href="http://127.0.0.1:8000/viewMenuPrincipal">Regresar menú principal</a>
     <div align='center'>
